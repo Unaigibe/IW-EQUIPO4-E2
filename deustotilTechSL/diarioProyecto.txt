@@ -1,2 +1,42 @@
 02-04-2020
 
+Idea de clases a definir:
+
+def PROYECTO class:
+    nombre
+    descripcion
+    fecha_inicio
+    fecha_fin
+    presupuesto
+    cliente
+    tareas_aRealizar
+    empleados
+
+def TAREA class:
+    nombre
+    descripcion
+    fecha_inicio
+    fecha_fin
+    responsable
+    prioridad (un numero del 1 al 5, a mayor numero menor prioridad)
+    estado_tarea (abierta/asignada/en_proceso/finalizada)
+    notas
+
+def EMPLEADO class:
+    dni
+    nombre
+    apellido1
+    apellido2
+    email
+    telefono
+
+def CLIENTE class:
+    nombre_empresa
+    nombre_contacto
+    telf_contacto
+    email_contacto
+
+
+
+
+
