@@ -22,20 +22,6 @@ def TAREA class:
     estado_tarea (abierta/asignada/en_proceso/finalizada)
     notas
 
-def EMPLEADO class:
-    dni
-    nombre
-    apellido1
-    apellido2
-    email
-    telefono
-
-def CLIENTE class:
-    nombre_empresa
-    nombre_contacto
-    telf_contacto
-    email_contacto
-
 def PRIORIDAD class:
     prioridad:
     {
