@@ -36,6 +36,15 @@ def CLIENTE class:
     telf_contacto
     email_contacto
 
+def PRIORIDAD class:
+    prioridad:
+    {
+    abierta pk = 1
+    asignada pk = 2
+    en_proceso pk = 3
+    finalizada pk = 4
+    }
+
 
 
 
