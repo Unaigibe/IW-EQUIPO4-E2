@@ -1,0 +1,61 @@
+[
+  {
+    "model": "appDeustotilTECHSL.Prioridad",
+    "fields": {
+      "prioridad": "baja",
+      },
+    "pk": 1
+  },
+
+    {
+    "model": "appDeustotilTECHSL.Prioridad",
+    "fields": {
+      "prioridad": "media",
+      },
+    "pk": 2
+  },
+
+    {
+    "model": "appDeustotilTECHSL.Prioridad",
+    "fields": {
+      "prioridad": "alta",
+      },
+    "pk": 3
+  },
+    {
+    "model": "appDeustotilTECHSL.Prioridad",
+    "fields": {
+      "prioridad": "urgente",
+      },
+    "pk": 4
+  },
+
+    {
+    "model": "appDeustotilTECHSL.EstadoTarea",
+    "fields": {
+      "estado_tarea": "abierta",
+      },
+    "pk": 1
+  },
+    {
+    "model": "appDeustotilTECHSL.EstadoTarea",
+    "fields": {
+      "estado_tarea": "asignada",
+      },
+    "pk": 2
+  },
+    {
+    "model": "appDeustotilTECHSL.EstadoTarea",
+    "fields": {
+      "estado_tarea": "enProceso",
+      },
+    "pk": 3
+  },
+    {
+    "model": "appDeustotilTECHSL.EstadoTarea",
+    "fields": {
+      "estado_tarea": "finalizada",
+      },
+    "pk": 4
+  }
+]
