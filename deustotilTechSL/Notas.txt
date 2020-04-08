@@ -1,6 +1,6 @@
 02-04-2020
 
-Idea de clases a definir:
+Clases:
 
 def PROYECTO class:
     nombre
