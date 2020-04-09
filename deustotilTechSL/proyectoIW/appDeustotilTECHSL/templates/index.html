@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Deustotil Tech SL</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Deutotil Tech SL</h1>
+        <p>Gestion de proyectos</p>
+        <nav>
+        <p>Esto es un NAV VACIO</p>
+        </nav>
+    </header>
+    <main>
+        <h2>{{ titulo_pagina }}</h2>
+        {% block contenido %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>Esto es el texto del footer</p>
+    </footer>
+</body>
+</html>

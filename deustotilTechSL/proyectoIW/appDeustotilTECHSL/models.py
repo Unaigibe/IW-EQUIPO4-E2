@@ -23,6 +23,9 @@ class Empleado(models.Model):
     email = models.EmailField()
     telefono = models.IntegerField()
 
+    def __str__(self):
+        return f'{self.dni}-> {self.nombre}'
+
 
 class Tarea(models.Model):
     nombre = models.CharField(max_length=25)
@@ -34,6 +37,10 @@ class Tarea(models.Model):
     estadoTarea = models.OneToOneField(EstadoTarea, on_delete=models.CASCADE)
     nota_adicional = models.TextField(max_length=750)
 
+    def __str__(self):
+        return f'{self.nombre}-> {self.descripcion}'
+
+
 
 class Cliente(models.Model):
     nombre_empresa = models.CharField(max_length=25)
@@ -42,6 +49,9 @@ class Cliente(models.Model):
     apellido2_contacto = models.CharField(max_length=25)
     telf_cliente = models.IntegerField()
     email_cliente = models.EmailField()
+
+    def __str__(self):
+        return f'{self.nombre_empresa} - El contacto es:  {self.nombre_contacto}'
 
 
 class Proyecto(models.Model):
@@ -54,3 +64,5 @@ class Proyecto(models.Model):
     tareas_a_realizar = models.ManyToManyField(Tarea)
     empleados = models.ManyToManyField(Empleado)
 
+    def __str__(self):
+        return f'{self.nombre} - Descripcion:  {self.descripcion}'
