@@ -8,6 +8,7 @@
             <th>Descripcion</th>
             <th>Cliente</th>
             <th>Empleados asignados</th>
+            <th>Fecha Inicio</th>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +17,8 @@
             <td>{{ proyecto.nombre}}</td>
             <td>{{ proyecto.descripcion }}</td>
             <td>{{ proyecto.cliente }}</td>
-            <td>{{ proyecto.empleados }}</td>
+            <td>{{ proyecto.empleados.all }}</td>
+            <td>{{ proyecto.fecha_inicio}}</td>
         </tr>
         {% endfor %}
     </tbody>

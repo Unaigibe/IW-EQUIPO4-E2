@@ -41,7 +41,6 @@ class Tarea(models.Model):
         return f'{self.nombre}-> {self.descripcion}'
 
 
-
 class Cliente(models.Model):
     nombre_empresa = models.CharField(max_length=25)
     nombre_contacto = models.CharField(max_length=25)
@@ -51,7 +50,7 @@ class Cliente(models.Model):
     email_cliente = models.EmailField()
 
     def __str__(self):
-        return f'{self.nombre_empresa} - El contacto es:  {self.nombre_contacto}'
+        return f'{self.nombre_empresa} Contacto:  {self.nombre_contacto}'
 
 
 class Proyecto(models.Model):
