@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td>Empresa</td>
+        <td>{{ cliente.nombre_empresa }}</td>
+    </tr>
+    <tr>
+        <td>Nombre del contacto</td>
+        <td>{{ cliente.nombre_contacto }}</td>
+    </tr>
+    <tr>
+        <td>Primer apellido </td>
+        <td>{{ cliente.apellido1_contacto}}</td>
+    </tr>
+    <tr>
+        <td>Segundo apellido</td>
+        <td>{{ cliente.apellido1_contacto }}</td>
+    </tr>
+    <tr>
+        <td>Telefono de contacto</td>
+        <td>{{ cliente.telf_cliente }}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ cliente.email_cliente }}</td>
+    </tr>
+</table>
+{% endblock %}

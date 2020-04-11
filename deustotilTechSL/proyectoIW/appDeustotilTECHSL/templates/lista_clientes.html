@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<table>
+    <thead>
+        <tr>
+            <th>Empresa</th>
+            <th>Contacto</th>
+            <th>Telefono</th>
+            <th>Mas acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in cliente_list %}
+        <tr>
+            <td>{{ cliente.nombre_empresa}}</td>
+            <td>{{ cliente.nombre_contacto }}</td>
+            <td>{{ cliente.telf_cliente }}</td>
+            <td><a href="{% url 'cliente' cliente.id %}">Detalles</a>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<a href="{% url 'nuevo_cliente' %}">Añadir un cliente nuevo</a>
+
+
+{% endblock %}

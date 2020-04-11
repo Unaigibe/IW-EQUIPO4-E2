@@ -2,8 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView
-from .models import Proyecto, Tarea, Empleado
-from .forms import ProyectoForm, TareaForm, EmpleadoForm
+from .models import Proyecto, Tarea, Empleado, Cliente
+from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm
 
 
 class ProyectoListView(ListView):
@@ -88,6 +88,7 @@ class NuevoEmpleado(View):
             return redirect('lista_empleados')
         return render(request, 'nuevo_empleado.html', {'form': form})
 
+
 class EmpleadoDetailView(DetailView):
     model = Empleado
     template_name = 'empleado.html'
@@ -95,4 +96,42 @@ class EmpleadoDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
         context['titulo_pagina'] = 'Detalle de este Empleado'
+        return context
+
+
+class ClienteListView(ListView):
+    model = Cliente
+    queryset = Cliente.objects.order_by('nombre_empresa')
+    template_name = "lista_clientes.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ClienteListView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Listado de Clientes'
+        return context
+
+
+class NuevoCliente(View):
+    def get(self, request, *args, **kwargs):
+        form = ClienteForm()
+        context = {
+            'form': form,
+            'titulo_pagina': 'Crear un cliente'
+        }
+        return render(request, 'nuevo_cliente.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_clientes')
+        return render(request, 'nuevo_cliente.html', {'form': form})
+
+
+class ClienteDetailView(DetailView):
+    model = Cliente
+    template_name = 'cliente.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ClienteDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalle de este Cliente'
         return context
