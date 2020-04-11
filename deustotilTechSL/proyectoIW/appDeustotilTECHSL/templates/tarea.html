@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td>Nombre</td>
+        <td>{{ tarea.nombre }}</td>
+    </tr>
+    <tr>
+        <td>Descripcion</td>
+        <td>{{ tarea.descripcion }}</td>
+    </tr>
+    <tr>
+        <td>Fecha de Inicio</td>
+        <td>{{ tarea.fecha_inicio}}</td>
+    </tr>
+    <tr>
+        <td>Fecha de Fin</td>
+        <td>{{ tarea.fecha_fin }}</td>
+    </tr>
+    <tr>
+        <td>Responsable</td>
+        <td>{{ tarea.responsable }}</td>
+    </tr>
+    <tr>
+        <td>Prioridad</td>
+        <td>{{ tarea.prioridad }}</td>
+    </tr>
+    <tr>
+        <td>Estado de la Tarea</td>
+        <td>{{ tarea.estadoTarea }}</td>
+    </tr>
+        <tr>
+        <td>Notas Adicionales</td>
+        <td>{{ tarea.nota_adicional }}</td>
+    </tr>
+</table>
+{% endblock %}

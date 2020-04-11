@@ -24,7 +24,7 @@ class Empleado(models.Model):
     telefono = models.IntegerField()
 
     def __str__(self):
-        return f'{self.dni}-> {self.nombre}'
+        return f'{self.nombre} {self.apellido1}'
 
 
 class Tarea(models.Model):
