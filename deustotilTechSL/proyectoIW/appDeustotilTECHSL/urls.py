@@ -11,4 +11,5 @@ urlpatterns = [
 
     #path('lista_clientes/<int:pk>/', views.ClientesDetailView.as_view(), name='proyecto'),
 
+
 ]
