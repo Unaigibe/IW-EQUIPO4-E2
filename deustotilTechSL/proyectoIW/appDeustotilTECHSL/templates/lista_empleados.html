@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<table>
+    <thead>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Mas acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for empleado in empleado_list %}
+        <tr>
+            <td>{{ empleado.dni}}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellido1 }}</td>
+            <td><a href="{% url 'empleado' empleado.id %}">Detalles</a>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<a href="{% url 'nuevo_empleado' %}">Añadir un empleado</a>
+
+
+{% endblock %}

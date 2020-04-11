@@ -6,6 +6,7 @@
         <tr>
             <th>Nombre de Tarea</th>
             <th>Descripcion</th>
+            <th>Prioridad</th>
             <th>Responsable</th>
             <th>Mas acciones</th>
         </tr>
@@ -15,10 +16,16 @@
         <tr>
             <td>{{ tarea.nombre}}</td>
             <td>{{ tarea.descripcion }}</td>
-            <td>{{ tarea.responsable }}</td>
-            <td><a href="{% url 'tarea' tarea.id %}">Ver más detalles</a></td>
+            <td>{{ tarea.prioridad }}</td>
+            <td>{{ tarea.responsable}}</td>
+            <td><a href="{% url 'tarea' tarea.id %}">Detalles</a>
+                <a href="{% url 'tarea' tarea.id %}">Editar tarea</a>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+<br>
+<a href="{% url 'nueva_tarea' %}">Añadir una tarea</a>
+
+
 {% endblock %}

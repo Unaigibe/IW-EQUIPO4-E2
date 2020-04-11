@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit">Crear tarea</button>
+</form>
+<a href="{% url 'lista_tareas' %}">Volver a la lista</a>
+
+{% endblock %}
