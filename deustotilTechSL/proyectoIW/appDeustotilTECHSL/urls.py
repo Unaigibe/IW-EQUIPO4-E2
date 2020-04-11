@@ -11,6 +11,16 @@ urlpatterns = [
 
 
     # path('lista_tareas/', views.TareaListView.as_view(), name='lista_tareas'),
-    # path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
-    # path('lista_tareas/crear/', views.TareaNewView.as_view(), name='nueva_tarea'),
+    #     # path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
+    #     # path('lista_tareas/crear/', views.TareaNewView.as_view(), name='nueva_tarea'),
+
+        # path('lista_tareas/', views.TareaListView.as_view(), name='lista_tareas'),
+    #     # path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
+    #     # path('lista_tareas/crear/', views.TareaNewView.as_view(), name='nueva_tarea'),    # path('lista_tareas/', views.TareaListView.as_view(), name='lista_tareas'),
+    #     #     # path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
+    #     #     # path('lista_tareas/crear/', views.TareaNewView.as_view(), name='nueva_tarea'),    # path('lista_tareas/', views.TareaListView.as_view(), name='lista_tareas'),
+    #     #     # path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
+    #     #     # path('lista_tareas/crear/', views.TareaNewView.as_view(), name='nueva_tarea'),    # path('lista_tareas/', views.TareaListView.as_view(), name='lista_tareas'),
+    #     #     # path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
+    #     #     # path('lista_tareas/crear/', views.TareaNewView.as_view(), name='nueva_tarea'),
 ]
