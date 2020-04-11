@@ -14,6 +14,9 @@ urlpatterns = [
 #path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
 #path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
 #path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
 
-
-
+]
