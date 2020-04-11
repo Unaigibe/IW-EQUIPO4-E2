@@ -9,7 +9,11 @@ urlpatterns = [
     #path('lista_proyectos/borrar', views.ProyectoDeleteView.as_view(), name='borrar_proyecto'),
     #path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
 
-    #path('lista_clientes/<int:pk>/', views.ClientesDetailView.as_view(), name='proyecto'),
+#path('lista_clientes/<int:pk>/', views.ClientesDetailView.as_view(), name='proyecto'),
 
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
+#path('lista_proyectos/editar/', views.ProyectoEditView.as_view(), name='editar_proyecto'),
 
 ]
