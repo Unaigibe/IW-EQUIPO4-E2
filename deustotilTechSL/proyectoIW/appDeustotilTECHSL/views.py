@@ -32,7 +32,6 @@ class TareaListView(ListView):
         return context
 
 
-
 class TareaDetailView(DetailView):
     model = Tarea
     template_name = 'tarea.html'
@@ -72,6 +71,15 @@ class ModificarTarea(UpdateView):
     form_class = ModificarTareaForm
     template_name = 'modificar_tarea.html'
     success_url = '/index/lista_tareas'
+
+
+class EliminarTarea(DeleteView):
+    model = Tarea
+    form_class = TareaForm
+    template_name = 'eliminar_tarea.html'
+    success_url = '/index/lista_tareas'
+
+
 
 
 class EmpleadoListView(ListView):
@@ -119,6 +127,16 @@ class ModificarEmpleado(UpdateView):
     success_url = '/index/lista_empleados/'
 
 
+class EliminarEmpleado(DeleteView):
+    model = Empleado
+    form_class = EmpleadoForm
+    template_name = 'eliminar_empleado.html'
+    success_url = '/index/lista_empleados/'
+
+
+
+
+
 class ClienteListView(ListView):
     model = Cliente
     queryset = Cliente.objects.order_by('nombre_empresa')
@@ -161,3 +179,10 @@ class ModificarCliente(UpdateView):
     form_class = ClienteForm
     template_name = 'modificar_cliente.html'
     success_url = '/index/lista_clientes'
+
+
+class EliminarCliente(DeleteView):
+    model = Cliente
+    form_class = ClienteForm
+    template_name = 'eliminar_cliente.html'
+    success_url = '/index/lista_clientes/'

@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<form method="post">{% csrf_token %}
+    <p>{{ object.nombre }} será borrado como empleado.</p>
+    <p>¿Estás seguro?</p>
+    <input type="submit" value="Vale">
+</form>
+
+{% endblock %}

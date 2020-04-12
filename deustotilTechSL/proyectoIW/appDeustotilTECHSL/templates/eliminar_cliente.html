@@ -2,7 +2,8 @@
 
 {% block contenido %}
 <form method="post">{% csrf_token %}
-    <p>Se va a borrar esta tarea "{{ object }}"?</p>
+    <p>{{ object.nombre_empresa }} será borrado como cliente de nuestra empresa.</p>
+    <p>¿Estás seguro?</p>
     <input type="submit" value="Vale">
 </form>
 

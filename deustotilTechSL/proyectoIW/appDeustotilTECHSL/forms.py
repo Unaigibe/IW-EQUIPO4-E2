@@ -34,12 +34,6 @@ class UpdateNotaTareaForm(forms.ModelForm):
         fields = ('nota_adicional',)
 
 
-
-
-
-
-
-
 class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado

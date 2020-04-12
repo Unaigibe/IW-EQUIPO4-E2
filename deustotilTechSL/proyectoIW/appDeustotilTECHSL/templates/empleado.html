@@ -26,6 +26,7 @@
     <tr>
         <td>Teléfono</td>
         <td>{{ empleado.telefono }}</td>
+        <td><a href="https://api.whatsapp.com/send?phone=+34{{empleado.telefono}}"target=»_blank»>Enviar WhatsApp</a></td>
     </tr>
 </table>
 {% endblock %}
