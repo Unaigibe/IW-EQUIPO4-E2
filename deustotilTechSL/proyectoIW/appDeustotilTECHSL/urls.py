@@ -25,7 +25,7 @@ urlpatterns = [
     path('lista_clientes/', views.ClienteListView.as_view(), name='lista_clientes'),
     path('lista_clientes/<int:pk>/', views.ClienteDetailView.as_view(), name='cliente'),
     path('lista_clientes/crear', views.NuevoCliente.as_view(), name='nuevo_cliente'),
-    path('lista_clientes/modificar_cliente/<pkk>/', views.ModificarCliente.as_view(), name='modificar_cliente'),
+    path('lista_clientes/modificar_cliente/<pk>/', views.ModificarCliente.as_view(), name='modificar_cliente'),
     path('lista_clientes/eliminar_cliente/<pk>/', views.EliminarCliente.as_view(), name='eliminar_cliente'),
 
 
