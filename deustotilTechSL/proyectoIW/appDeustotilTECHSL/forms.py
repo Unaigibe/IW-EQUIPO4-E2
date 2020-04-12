@@ -1,4 +1,6 @@
 from django import forms
+from django.forms import DateInput
+
 from .models import Proyecto, Tarea, Empleado, Cliente
 
 
@@ -7,11 +9,35 @@ class ProyectoForm(forms.ModelForm):
         model = Proyecto
         fields = '__all__'
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class TareaForm(forms.ModelForm):
     class Meta:
         model = Tarea
         fields = '__all__'
+        widgets = {
+            'fecha_inicio': DateInput(),
+            'fecha_fin': DateInput()
+        }
+
+
+class ModificarTareaForm(forms.ModelForm):
+    class Meta:
+        model = Tarea
+        exclude = ['nota_adicional']
+
+
+class UpdateNotaTareaForm(forms.ModelForm):
+    class Meta:
+        model = Tarea
+        fields = ('nota_adicional',)
+
+
+
+
+
+
 
 
 class EmpleadoForm(forms.ModelForm):
@@ -24,3 +50,6 @@ class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = '__all__'
+
+
+

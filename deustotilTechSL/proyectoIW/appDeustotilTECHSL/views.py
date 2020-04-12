@@ -1,9 +1,8 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from .models import Proyecto, Tarea, Empleado, Cliente
-from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm
+from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, UpdateNotaTareaForm, ModificarTareaForm
 
 
 class ProyectoListView(ListView):
@@ -61,6 +60,20 @@ class NuevaTarea(View):
         return render(request, 'nueva_tarea.html', {'form': form})
 
 
+class EscribirNota(UpdateView):
+    model = Tarea
+    form_class = UpdateNotaTareaForm
+    template_name = 'escribir_nota.html'
+    success_url = '/index/lista_tareas'
+
+
+class ModificarTarea(UpdateView):
+    model = Tarea
+    form_class = ModificarTareaForm
+    template_name = 'modificar_tarea.html'
+    success_url = '/index/lista_tareas'
+
+
 class EmpleadoListView(ListView):
     model = Empleado
     queryset = Empleado.objects.order_by('nombre')
@@ -99,6 +112,13 @@ class EmpleadoDetailView(DetailView):
         return context
 
 
+class ModificarEmpleado(UpdateView):
+    model = Empleado
+    form_class = EmpleadoForm
+    template_name = 'modificar_empleado.html'
+    success_url = '/index/lista_empleados/'
+
+
 class ClienteListView(ListView):
     model = Cliente
     queryset = Cliente.objects.order_by('nombre_empresa')
@@ -135,3 +155,9 @@ class ClienteDetailView(DetailView):
         context = super(ClienteDetailView, self).get_context_data(**kwargs)
         context['titulo_pagina'] = 'Detalle de este Cliente'
         return context
+
+class ModificarCliente(UpdateView):
+    model = Cliente
+    form_class = ClienteForm
+    template_name = 'modificar_cliente.html'
+    success_url = '/index/lista_clientes'

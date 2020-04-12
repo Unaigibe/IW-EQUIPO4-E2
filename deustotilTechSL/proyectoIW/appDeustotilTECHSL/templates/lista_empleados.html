@@ -17,6 +17,7 @@
             <td>{{ empleado.nombre }}</td>
             <td>{{ empleado.apellido1 }}</td>
             <td><a href="{% url 'empleado' empleado.id %}">Detalles</a>
+            <td><a href="{% url 'modificar_empleado' empleado.id %}">Modificar datos</a>
         </tr>
         {% endfor %}
     </tbody>

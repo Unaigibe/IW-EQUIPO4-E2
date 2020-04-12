@@ -19,7 +19,8 @@
             <td>{{ tarea.prioridad }}</td>
             <td>{{ tarea.responsable}}</td>
             <td><a href="{% url 'tarea' tarea.id %}">Detalles</a>
-                <a href="{% url 'tarea' tarea.id %}">Editar tarea</a>
+                <a href="{% url 'modificar_tarea' tarea.id %}">Modificar tarea</a>
+                <a href="{% url 'escribir_nota' tarea.id %}">Ver notas</a>
         </tr>
         {% endfor %}
     </tbody>

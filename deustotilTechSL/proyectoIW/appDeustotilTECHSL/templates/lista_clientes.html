@@ -17,6 +17,7 @@
             <td>{{ cliente.nombre_contacto }}</td>
             <td>{{ cliente.telf_cliente }}</td>
             <td><a href="{% url 'cliente' cliente.id %}">Detalles</a>
+            <a href="{% url 'modificar_cliente' cliente.id %}">Modificar datos</a>
         </tr>
         {% endfor %}
     </tbody>
