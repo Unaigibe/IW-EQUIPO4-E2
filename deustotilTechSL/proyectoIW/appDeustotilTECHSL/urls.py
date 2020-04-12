@@ -14,7 +14,7 @@ urlpatterns = [
     path('lista_tareas/crear/', views.NuevaTarea.as_view(), name='nueva_tarea'),
     path('lista_tareas/escribir_nota/<int:pk>/', views.EscribirNota.as_view(), name='escribir_nota'),
     path('lista_tareas/modificar_tarea/<int:pk>/', views.ModificarTarea.as_view(), name='modificar_tarea'),
-#    path('lista_tareas/borrar/<int:pk>/', views.BorrarTarea().as_view(), name='borrar_tarea'),
+#   path('lista_tareas/borrar/<int:pk>/', views.BorrarTarea().as_view(), name='borrar_tarea'),
 
     path('lista_empleados/', views.EmpleadoListView.as_view(), name='lista_empleados'),
     path('lista_empleados/<int:pk>/', views.EmpleadoDetailView.as_view(), name='empleado'),
