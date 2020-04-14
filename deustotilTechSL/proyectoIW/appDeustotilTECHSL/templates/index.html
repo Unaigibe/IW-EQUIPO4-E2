@@ -2,18 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <title>Deustotil Tech SL</title>
 </head>
 <body>
     <header>
         <h1>Bienvenido a Deustotil Tech SL</h1>
-        <p>Gestion de proyectos</p>
+        <img id="iconoHeader" src="{% static 'img/headerIcon.jpg' %}">
+        <h2>Tu empresa TIC de confianza</h2>
         <nav>
-        <p>Esto es un NAV VACIO</p>
-        <a href="{% url 'lista_proyectos' %}">Ver Proyectos</a>
+        <a href="{% url 'lista_proyectos' %}">Nuestros Proyectos</a>
         <a href="{% url 'lista_tareas' %}">Ver Tareas</a>
-        <a href="{% url 'lista_empleados' %}">Ver Empleados</a>
-        <a href="{% url 'lista_clientes' %}">Ver Clientes</a>
+        <a href="{% url 'lista_empleados' %}">Nuestra Plantilla</a>
+        <a href="{% url 'lista_clientes' %}">Nuestros Clientes</a>
         </nav>
     </header>
     <main>

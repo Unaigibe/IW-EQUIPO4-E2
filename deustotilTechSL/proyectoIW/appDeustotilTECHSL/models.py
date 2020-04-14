@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 
 
@@ -30,12 +32,12 @@ class Empleado(models.Model):
 class Tarea(models.Model):
     nombre = models.CharField(max_length=25)
     descripcion = models.CharField(max_length=120)
-    fecha_inicio = models.DateField()
-    fecha_fin = models.DateField()
+    fecha_inicio = models.DateField(default=date.today())
+    fecha_fin = models.DateField(default=date.today())
     responsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
-    prioridad = models.ForeignKey(Prioridad, on_delete=models.CASCADE)
-    estadoTarea = models.ForeignKey(EstadoTarea, on_delete=models.CASCADE)
-    nota_adicional = models.TextField(max_length=750)
+    prioridad = models.ForeignKey(Prioridad, default='Ninguna', on_delete=models.CASCADE)
+    estadoTarea = models.ForeignKey(EstadoTarea,default='Abierta', on_delete=models.CASCADE)
+    nota_adicional = models.TextField(default='Rellena este campo con información adicional',max_length=750)
 
     def __str__(self):
         return f'{self.nombre}-> {self.descripcion}'
@@ -56,9 +58,9 @@ class Cliente(models.Model):
 class Proyecto(models.Model):
     nombre = models.CharField(max_length=25)
     descripcion = models.CharField(max_length=120)
-    fecha_inicio = models.DateField()
-    fecha_fin = models.DateField()
-    presupuesto = models.FloatField()
+    fecha_inicio = models.DateField(default=date.today())
+    fecha_fin = models.DateField(default=date.today())
+    presupuesto = models.FloatField(default=0)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     tareas_a_realizar = models.ManyToManyField(Tarea)
     empleados = models.ManyToManyField(Empleado)
