@@ -1,8 +1,19 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
+from requests import request
+
 from .models import Proyecto, Tarea, Empleado, Cliente
 from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, UpdateNotaTareaForm, ModificarTareaForm
+
+
+def home(request):
+    numProyectos = Proyecto.objects.all().count()
+    numClientes = Cliente.objects.all().count()
+    numEmpleados = Empleado.objects.all().count()
+    context = {'numProyectos' : numProyectos, 'numClientes': numClientes, 'numEmpleados': numEmpleados, 'titulo_pagina': 'Nuestra empresa'}
+    return render(request, 'home.html', context)
 
 
 class ProyectoListView(ListView):
@@ -20,6 +31,8 @@ class ProyectoListView(ListView):
 #
 #
 #
+
+
 
 class TareaListView(ListView):
     model = Tarea
