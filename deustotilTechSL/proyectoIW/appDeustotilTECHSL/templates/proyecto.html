@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td>Nombre</td>
+        <td>{{ proyecto.nombre }}</td>
+    </tr>
+    <tr>
+        <td>Descripción</td>
+        <td>{{ proyecto.descripcion }}</td>
+    </tr>
+    <tr>
+        <td>Fecha de Inicio</td>
+        <td>{{ proyecto.fecha_inicio}}</td>
+    </tr>
+    <tr>
+        <td>Fecha de Fin</td>
+        <td>{{ proyecto.fecha_fin }}</td>
+    </tr>
+    <tr>
+        <td>Presupuesto</td>
+        <td>{{ proyecto.presupuesto }}</td>
+    </tr>
+    <tr>
+        <td>Cliente</td>
+        <td>{{ proyecto.cliente }}</td>
+    </tr>
+    <tr>
+        <td>Tareas a Realizar</td>
+        <td>{{ proyecto.tareas_a_realizar }}</td>
+    </tr>
+        <tr>
+        <td>Empleados que participan</td>
+        <td>{{ proyecto.empleados_participan }}</td>
+    </tr>
+</table>
+
+{% endblock %}
