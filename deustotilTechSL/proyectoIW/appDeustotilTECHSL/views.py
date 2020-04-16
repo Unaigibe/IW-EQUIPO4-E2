@@ -116,7 +116,7 @@ class NuevoEmpleado(View):
         return render(request, 'nuevo_empleado.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = EmpleadoForm(request.POST)
+        form = EmpleadoForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('lista_empleados')

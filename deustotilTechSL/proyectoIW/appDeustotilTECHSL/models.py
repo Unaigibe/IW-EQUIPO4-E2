@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime, timezone, timedelta
 
 from django.db import models
 
@@ -19,6 +19,7 @@ class EstadoTarea(models.Model):
 
 class Empleado(models.Model):
     dni = models.CharField(max_length=12)
+    foto_perfil = models.ImageField(upload_to='fotos_perfil/', blank=True)
     nombre = models.CharField(max_length=25)
     apellido1 = models.CharField(max_length=25)
     apellido2 = models.CharField(max_length=25)

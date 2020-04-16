@@ -54,11 +54,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'proyectoIW.urls'
 
-STATICFILES_DIRS = [
-    "/deustotilTechSL/proyectoIW/appDeustotilTECHSL/static",
-]
-
-
 
 TEMPLATES = [
     {
@@ -126,4 +121,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATICFILES_DIRS = [
+    "/deustotilTechSL/proyectoIW/appDeustotilTECHSL/static",
+]
 STATIC_URL = '/static/'
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

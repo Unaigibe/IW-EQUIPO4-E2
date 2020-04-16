@@ -2,7 +2,7 @@
 
 {% block contenido %}
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {{ form.as_p }}
     {% csrf_token %}
     <button type="submit">Crear Empleado</button>
