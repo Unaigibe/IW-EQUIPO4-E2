@@ -17,8 +17,8 @@
             <td>{{ cliente.nombre_contacto }}</td>
             <td>{{ cliente.telf_cliente }}</td>
             <td class="celdaIconos"><a href="{% url 'cliente' cliente.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
-            <a href="{% url 'modificar_cliente' cliente.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
             <a href="{% url 'eliminar_cliente' cliente.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
+            <a href="{% url 'modificar_cliente' cliente.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
         </tr>
         {% endfor %}
     </tbody>

@@ -4,7 +4,7 @@
 <table>
     <thead>
         <tr>
-            <th>Nombre de proyecto</th>
+            <th>Proyecto</th>
             <th>Descripcion</th>
             <th>Cliente</th>
             <th>Acciones</th>
@@ -17,9 +17,8 @@
             <td>{{ proyecto.descripcion }}</td>
             <td>{{ proyecto.cliente }}</td>
             <td class="celdaIconos"><a href="{% url 'proyecto' proyecto.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
-
-                <a href="{% url 'modificar_proyecto' proyecto.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
                 <a href="{% url 'eliminar_proyecto' proyecto.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
+                <a href="{% url 'modificar_proyecto' proyecto.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
 
 
         </tr>

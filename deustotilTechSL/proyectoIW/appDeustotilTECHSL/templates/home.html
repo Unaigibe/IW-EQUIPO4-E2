@@ -1,12 +1,22 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block contenido %}
 
-  <ul>
-    <li>Proyectos activos: {{ numProyectos }}</li>
-    <li>Clientes: {{ numClientes }}</li>
-    <li>Empleados: {{ numEmpleados }}</li>
-  </ul>
+<section class="seccionesPortada">
+  <img id="imagenProyectos" src="{% static 'img/imagenProyectos.jpg' %}">
+  <p class="textoPortada">Actualmente, en nuestra empresa tenemos {{ numProyectos }} proyectos en desarrollo</p>
+</section>
+
+<section class="seccionesPortada">
+   <img id="imagenClientes" src="{% static 'img/imagenClientes.jpg' %}">
+   <p class="textoPortada">En nuestra cartera, contamos con {{ numClientes }} clientes de todo tipo</p>
+</section>
+<section class="seccionesPortada">
+  <img id="imagenEmpleados" src="{% static 'img/imagenEmpleados.jpg' %}">
+  <p class="textoPortada">En nuestra plantilla contamos con {{ numEmpleados }} empleados de alta cualificación</p>
+</section>
+
 
 <iframe width="740" height="580" src="https://www.youtube.com/embed/5GrlGZqaZ4I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
