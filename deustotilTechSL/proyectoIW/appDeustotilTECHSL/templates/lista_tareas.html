@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-
+{% load static %}
 {% block contenido %}
 <table>
     <thead>
@@ -18,16 +18,17 @@
             <td>{{ tarea.descripcion }}</td>
             <td>{{ tarea.prioridad }}</td>
             <td>{{ tarea.responsable}}</td>
-            <td><a href="{% url 'tarea' tarea.id %}">Detalles</a>
-                <a href="{% url 'modificar_tarea' tarea.id %}">Modificar tarea</a>
-                <a href="{% url 'escribir_nota' tarea.id %}">Ver notas</a>
-                <a href="{% url 'eliminar_tarea' tarea.id %}">Eliminar tarea</a>
+            <td class="celdaIconos"><a href="{% url 'tarea' tarea.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
+                <a href="{% url 'escribir_nota' tarea.id %}"><img id="iconoAnotar" src="{% static 'img/iconoAnotar.png' %}"></a>
+                <a href="{% url 'eliminar_tarea' tarea.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
+                <a href="{% url 'modificar_tarea' tarea.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 <br>
-<a href="{% url 'nueva_tarea' %}">Añadir una tarea</a>
+<a class="boton" href="{% url 'nueva_tarea' %}">Crear tarea</a>
 
 
 {% endblock %}

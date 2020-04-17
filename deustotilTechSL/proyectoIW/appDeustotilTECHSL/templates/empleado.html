@@ -1,33 +1,35 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block contenido %}
-
-<img src="{{ empleado.foto_perfil.url }}" width="240" height="240">
-<table>
+<section id="seccionDatosEmpleado">
+<img id="fotoPerfil" src="{{ empleado.foto_perfil.url }}" width="240" height="240">
+<table id="fichaEmpleado">
     <tr>
-        <td>DNI</td>
+        <td>DNI:</td>
         <td>{{ empleado.dni }}</td>
     </tr>
     <tr>
-        <td>Nombre</td>
+        <td>Nombre:</td>
         <td>{{ empleado.nombre }}</td>
     </tr>
     <tr>
-        <td>Primer apellido </td>
+        <td>Primer apellido: </td>
         <td>{{ empleado.apellido1}}</td>
     </tr>
     <tr>
-        <td>Segundo apellido</td>
+        <td>Segundo apellido:</td>
         <td>{{ empleado.apellido2 }}</td>
     </tr>
     <tr>
         <td>e-Mail</td>
-        <td>{{ empleado.email }}</td>
+        <td><a href="mailto:{{ empleado.email }}"><img id="iconoMail" src="{% static 'img/iconoMail.png' %}"></a></td>
+
     </tr>
     <tr>
         <td>Teléfono</td>
-        <td>{{ empleado.telefono }}</td>
-        <td><a href="https://api.whatsapp.com/send?phone=+34{{empleado.telefono}}"target=»_blank»>Enviar WhatsApp</a></td>
-    </tr>
+        <td><a href="https://api.whatsapp.com/send?phone=+34{{empleado.telefono}}"target="_blank"><img id="iconoWA" src="{% static 'img/iconoWA.png' %}"></a></td>
 </table>
+</section>
+
 {% endblock %}

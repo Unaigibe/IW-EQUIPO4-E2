@@ -4,19 +4,115 @@ body {
     margin: auto;
 }
 
+.boton {
+    border: 1px solid black;
+    padding: 8px;
+    background-color: green;
+    color: white;
+    text-transform: uppercase;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 30px;
+}
+
 main {
     width: 85%;
     margin: auto;
 }
 
 head {
-    background-color: royalblue;
+    background-color: black;
 }
 
 #iconoHeader {
     background-color: blue;
     padding: 3px;
     width: 280px;
+}
+
+#fichaEmpleado {
+    border-spacing: 20px;
+    border-style: solid;
+    border-color: black;
+    table-layout: fixed;
+    border-collapse: separate;
+    float: left;
+    margin-left: 5px;
+}
+
+#fotoPerfil {
+    background-color: black;
+    padding: 3px;
+    float: right;
+}
+
+#seccionDatosEmpleado {}
+
+.celdaIconos {
+    text-align: center;
+    width: 90px;
+}
+
+th {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 22px;
+    text-align: center;
+}
+
+td {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 22px;
+    text-align: left;
+}
+
+.formularios {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 22px;
+}
+
+#iconoWA {
+    height: 65px;
+    width: 65px;
+    float: left;
+}
+
+#iconoDetalles {
+    height: 30px;
+    width: 30px;
+}
+
+#iconoModificar {
+    height: 30px;
+    width: 30px;
+}
+
+#iconoBorrar {
+    height: 30px;
+    width: 30px;
+}
+
+#iconoAnotar {
+    height: 30px;
+    width: 30px;
+}
+
+#iconoMail {
+    height: 60px;
+    width: 60px;
+}
+
+.iconoOK {
+    height: 50px;
+    widows: 50px;
+}
+
+.iconoAtras {
+    height: 50px;
+    widows: 50px;
+}
+
+.iconoNOTOK {
+    height: 50px;
+    widows: 50px;
 }
 
 header {
@@ -41,8 +137,24 @@ h2 {
     color: blue
 }
 
-a:hover {
-    color: red;
+a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .4s;
 }
 
-footer {}
+a:hover,
+a:focus {
+    background-size: 100% 2px;
+}
+
+footer {
+    background-color: 339fff;
+    position: absolute;
+    width: 75%;
+    height: 40px;
+    margin-top: 15px;
+}

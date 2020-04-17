@@ -129,7 +129,7 @@ class EmpleadoDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Detalle de este Empleado'
+        context['titulo_pagina'] = 'Ficha de Empleado'
         return context
 
 

@@ -1,12 +1,13 @@
 {% extends 'index.html' %}
-
+{% load static %}
 {% block contenido %}
 
-<form method="POST">
+<form class="formularios" method="POST">
     {{ form.as_p }}
     {% csrf_token %}
-    <button type="submit">Crear cliente</button>
+    <input class="iconoOK" type="image" src="{% static 'img/iconoOK.png' %}" alt="Submit">
+    <a href="{% url 'lista_clientes' %}"><img class="iconoNOTOK" src="{% static 'img/iconoNOTOK.png' %}"></a>
 </form>
-<a href="{% url 'lista_clientes' %}">Volver a la lista</a>
+
 
 {% endblock %}

@@ -35,9 +35,9 @@ class Tarea(models.Model):
     descripcion = models.CharField(max_length=120)
     fecha_inicio = models.DateField(default=date.today())
     fecha_fin = models.DateField(default=date.today())
-    responsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
-    prioridad = models.ForeignKey(Prioridad, default='Ninguna', on_delete=models.CASCADE)
-    estadoTarea = models.ForeignKey(EstadoTarea,default='Abierta', on_delete=models.CASCADE)
+    responsable = models.ForeignKey(Empleado, null=True, on_delete=models.SET_NULL)
+    prioridad = models.ForeignKey(Prioridad, default='Ninguna', null=True, on_delete=models.SET_NULL)
+    estadoTarea = models.ForeignKey(EstadoTarea,default='Abierta', null=True, on_delete=models.SET_NULL)
     nota_adicional = models.TextField(default='Rellena este campo con información adicional',max_length=750)
 
     def __str__(self):
@@ -62,7 +62,7 @@ class Proyecto(models.Model):
     fecha_inicio = models.DateField(default=date.today())
     fecha_fin = models.DateField(default=date.today())
     presupuesto = models.FloatField(default=0)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, null=True, on_delete=models.SET_NULL)
     tareas_a_realizar = models.ManyToManyField(Tarea)
     empleados = models.ManyToManyField(Empleado)
 

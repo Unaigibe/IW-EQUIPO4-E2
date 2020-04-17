@@ -1,12 +1,12 @@
 {% extends 'index.html' %}
-
+{% load static %}
 {% block contenido %}
 
-<form method="POST" enctype="multipart/form-data">
+<form class="formularios" method="POST" enctype="multipart/form-data">
     {{ form.as_p }}
     {% csrf_token %}
-    <button type="submit">Crear Empleado</button>
+    <input class="iconoOK" type="image" src="{% static 'img/iconoOK.png' %}" alt="Submit">
+    <a href="{% url 'lista_empleados' %}"><img class="iconoNOTOK" src="{% static 'img/iconoNOTOK.png' %}"></a>
 </form>
-<a href="{% url 'lista_empleados' %}">Volver a la lista</a>
 
 {% endblock %}
