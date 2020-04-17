@@ -15,10 +15,16 @@
             <td>{{ proyecto.nombre}}</td>
             <td>{{ proyecto.descripcion }}</td>
             <td>{{ proyecto.cliente }}</td>
+            <td><a href="{% url 'proyecto' proyecto.id %}">Detalles</a>
+                <a href="{% url 'lista_tareas' tarea.id %}">Tareas a Realizar</a>
+                <a href="{% url 'modificar_proyecto' proyecto.id %}">Modificar proyecto</a>
+                <a href="{% url 'eliminar_proyecto' proyecto.id %}">Eliminar proyecto</a>
 
 
         </tr>
         {% endfor %}
     </tbody>
 </table>
+<a href="{% url 'nuevo_proyecto' %}">Añadir un proyecto</a>
+
 {% endblock %}
