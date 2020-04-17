@@ -5,34 +5,75 @@ from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from requests import request
 
 from .models import Proyecto, Tarea, Empleado, Cliente
-from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, UpdateNotaTareaForm, ModificarTareaForm
+from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, \
+    UpdateNotaTareaForm, ModificarProyectoForm, ModificarTareaForm
 
 
 def home(request):
     numProyectos = Proyecto.objects.all().count()
     numClientes = Cliente.objects.all().count()
     numEmpleados = Empleado.objects.all().count()
-    context = {'numProyectos' : numProyectos, 'numClientes': numClientes, 'numEmpleados': numEmpleados, 'titulo_pagina': 'Nuestra empresa'}
+    context = {'numProyectos': numProyectos, 'numClientes': numClientes, 'numEmpleados': numEmpleados,
+               'titulo_pagina': 'Nuestra empresa'}
     return render(request, 'home.html', context)
 
 
+# ESPACIO PARA LAS VISTAS DE PROYECTOS
+
 class ProyectoListView(ListView):
-    model = Proyecto
-    queryset = Proyecto.objects.order_by('nombre')
+    model = Tarea
+    queryset = Tarea.objects.order_by('nombre')
     template_name = "lista_proyectos.html"
 
     def get_context_data(self, **kwargs):
         context = super(ProyectoListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Proyectos en Deustotil Tech SL'
+        context['titulo_pagina'] = 'Listado de Proyectos'
         return context
 
 
-#####ESPACIO PARA LAS VISTAS DE PROYECTOS
-#
-#
-#
+class ProyectoDetailView(DetailView):
+    model = Proyecto
+    template_name = 'proyecto.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProyectoDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalles de este Proyecto'
+        return context
 
 
+class NuevoProyecto(View):
+
+    def get(self, request, *args, **kwargs):
+        form = ProyectoForm()
+        context = {
+            'form': form,
+            'titulo_pagina': 'Crear un proyecto'
+        }
+        return render(request, 'nuevo_proyecto.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = ProyectoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_proyectos')
+        return render(request, 'nuevo_proyecto.html', {'form': form})
+
+class ModificarProyecto(UpdateView):
+    model = Proyecto
+    form_class = ModificarProyectoForm
+    template_name = 'modificar_tarea.html'
+    success_url = '/index/lista_tareas'
+
+
+class EliminarProyecto(DeleteView):
+    model = Proyecto
+    form_class = ProyectoForm
+    template_name = 'eliminar_proyecto.html'
+    success_url = '/index/lista_proyectos'
+
+
+# ESPACIO PARA LAS VISTAS DE TAREAS
+#
 
 class TareaListView(ListView):
     model = Tarea
@@ -93,6 +134,7 @@ class EliminarTarea(DeleteView):
     success_url = '/index/lista_tareas'
 
 
+# ESPACIO PARA LAS VISTAS DE EMPLEADO
 
 
 class EmpleadoListView(ListView):
@@ -116,7 +158,7 @@ class NuevoEmpleado(View):
         return render(request, 'nuevo_empleado.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = EmpleadoForm(request.POST,request.FILES)
+        form = EmpleadoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('lista_empleados')
@@ -147,7 +189,8 @@ class EliminarEmpleado(DeleteView):
     success_url = '/index/lista_empleados/'
 
 
-
+#####ESPACIO PARA LAS VISTAS DE CLIENTE
+#
 
 
 class ClienteListView(ListView):
@@ -186,6 +229,7 @@ class ClienteDetailView(DetailView):
         context = super(ClienteDetailView, self).get_context_data(**kwargs)
         context['titulo_pagina'] = 'Detalle de este Cliente'
         return context
+
 
 class ModificarCliente(UpdateView):
     model = Cliente

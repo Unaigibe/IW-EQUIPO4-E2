@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-
+{% load static %}
 {% block contenido %}
 <table>
     <thead>
@@ -15,16 +15,16 @@
             <td>{{ proyecto.nombre}}</td>
             <td>{{ proyecto.descripcion }}</td>
             <td>{{ proyecto.cliente }}</td>
-            <td><a href="{% url 'proyecto' proyecto.id %}">Detalles</a>
-                <a href="{% url 'lista_tareas' tarea.id %}">Tareas a Realizar</a>
-                <a href="{% url 'modificar_proyecto' proyecto.id %}">Modificar proyecto</a>
-                <a href="{% url 'eliminar_proyecto' proyecto.id %}">Eliminar proyecto</a>
+            <td class="celdaIconos"><a href="{% url 'proyecto' proyecto.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}">Detalles</a>
+                <a href="{% url 'lista_tareas' tarea.id %}"><img id="iconoTareas" src="{% static 'img/iconoTareas.png' %}">Tareas a Realizar</a>
+                <a href="{% url 'modificar_proyecto' proyecto.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}">Modificar proyecto</a>
+                <a href="{% url 'eliminar_proyecto' proyecto.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}">Eliminar proyecto</a>
 
 
         </tr>
         {% endfor %}
     </tbody>
 </table>
-<a href="{% url 'nuevo_proyecto' %}">Añadir un proyecto</a>
+<a class="boton" href="{% url 'nuevo_proyecto' %}"><img id="iconoAñadir" src="{% static 'img/iconoAñadir.png' %}">Añadir un proyecto</a>
 
 {% endblock %}
