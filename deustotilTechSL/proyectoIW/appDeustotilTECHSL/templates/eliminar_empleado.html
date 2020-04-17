@@ -1,10 +1,12 @@
 {% extends 'index.html' %}
+{% load static %}
 
 {% block contenido %}
-<form method="post">{% csrf_token %}
+<form class="formularios" method="post">{% csrf_token %}
     <p>{{ object.nombre }} será borrado como empleado.</p>
     <p>¿Estás seguro?</p>
-    <input type="submit" value="Vale">
+    <a href="{% url 'lista_empleados' %}"><img class="iconoAtras" src="{% static 'img/iconoAtras.png' %}"></a>
+    <input class="iconoOK" type="image" src="{% static 'img/iconoOK.png' %}" alt="Submit">
 </form>
 
 {% endblock %}

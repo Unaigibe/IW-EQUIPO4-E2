@@ -1,32 +1,33 @@
 {% extends "index.html" %}
-
+{% load static %}
 {% block contenido %}
 
-<table>
+    <a href="{% url 'lista_clientes' %}"><img class="iconoAtras" src="{% static 'img/iconoAtras.png' %}"></a>
+
+<table class="tablaObjeto">
     <tr>
-        <td>Empresa</td>
+        <td>Empresa:</td>
         <td>{{ cliente.nombre_empresa }}</td>
     </tr>
     <tr>
-        <td>Nombre del contacto</td>
+        <td>Nombre del contacto:</td>
         <td>{{ cliente.nombre_contacto }}</td>
     </tr>
     <tr>
-        <td>Primer apellido </td>
+        <td>Primer apellido:</td>
         <td>{{ cliente.apellido1_contacto}}</td>
     </tr>
     <tr>
-        <td>Segundo apellido</td>
+        <td>Segundo apellido:</td>
         <td>{{ cliente.apellido1_contacto }}</td>
     </tr>
     <tr>
-        <td>Telefono de contacto</td>
+        <td>Telefono de contacto:</td>
         <td>{{ cliente.telf_cliente }}</td>
     </tr>
     <tr>
         <td>Email</td>
-        <td>{{ cliente.email_cliente }}</td>
-        <td><a href="mailto:{{ cliente.email_cliente }}">Enviar Mail</a></td>
+        <td><a href="mailto:{{ cliente.email }}"><img id="iconoMail" src="{% static 'img/iconoMail.png' %}"></a></td>
     </tr>
 </table>
 {% endblock %}

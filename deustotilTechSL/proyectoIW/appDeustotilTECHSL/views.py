@@ -62,8 +62,8 @@ class NuevoProyecto(View):
 class ModificarProyecto(UpdateView):
     model = Proyecto
     form_class = ModificarProyectoForm
-    template_name = 'modificar_tarea.html'
-    success_url = '/index/lista_tareas'
+    template_name = 'modificar_proyecto.html'
+    success_url = '/index/lista_proyectos'
 
 
 class EliminarProyecto(DeleteView):
@@ -126,17 +126,17 @@ class NuevaTarea(View):
         return render(request, 'nueva_tarea.html', {'form': form})
 
 
-class EscribirNota(UpdateView):
-    model = Tarea
-    form_class = UpdateNotaTareaForm
-    template_name = 'escribir_nota.html'
-    success_url = '/index/lista_tareas'
-
-
 class ModificarTarea(UpdateView):
     model = Tarea
     form_class = ModificarTareaForm
     template_name = 'modificar_tarea.html'
+    success_url = '/index/lista_tareas'
+
+
+class EscribirNota(UpdateView):
+    model = Tarea
+    form_class = UpdateNotaTareaForm
+    template_name = 'escribir_nota.html'
     success_url = '/index/lista_tareas'
 
 
