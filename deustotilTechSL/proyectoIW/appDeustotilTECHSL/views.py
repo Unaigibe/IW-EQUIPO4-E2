@@ -21,8 +21,8 @@ def home(request):
 # ESPACIO PARA LAS VISTAS DE PROYECTOS
 
 class ProyectoListView(ListView):
-    model = Tarea
-    queryset = Tarea.objects.order_by('nombre')
+    model = Proyecto
+    queryset = Proyecto.objects.order_by('nombre')
     template_name = "lista_proyectos.html"
 
     def get_context_data(self, **kwargs):
@@ -58,6 +58,7 @@ class NuevoProyecto(View):
             return redirect('lista_proyectos')
         return render(request, 'nuevo_proyecto.html', {'form': form})
 
+
 class ModificarProyecto(UpdateView):
     model = Proyecto
     form_class = ModificarProyectoForm
@@ -74,6 +75,18 @@ class EliminarProyecto(DeleteView):
 
 # ESPACIO PARA LAS VISTAS DE TAREAS
 #
+
+"""class TareaProyectoListView(ListView):
+    model = Tarea
+    queryset = Tarea.objects.order_by('nombre')
+    template_name = "tareas_proyecto.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TareaListView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Listado de Tareas en este proyecto'
+        return context
+"""
+
 
 class TareaListView(ListView):
     model = Tarea

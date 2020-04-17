@@ -53,7 +53,7 @@ class Cliente(models.Model):
     email_cliente = models.EmailField()
 
     def __str__(self):
-        return f'{self.nombre_empresa} Contacto:  {self.nombre_contacto}'
+        return f'{self.nombre_empresa}'
 
 
 class Proyecto(models.Model):

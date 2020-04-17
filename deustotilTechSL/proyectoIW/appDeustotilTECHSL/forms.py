@@ -1,7 +1,6 @@
 from django import forms
 from django.forms import ImageField
 from django.utils.safestring import mark_safe
-
 from .models import Proyecto, Tarea, Empleado, Cliente
 
 
@@ -23,6 +22,7 @@ class ModificarProyectoForm(forms.ModelForm):
     class Meta:
         model = Proyecto
         fields = '__all__'
+
 
 class TareaForm(forms.ModelForm):
     class Meta:

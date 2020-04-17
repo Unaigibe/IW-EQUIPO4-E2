@@ -110,6 +110,11 @@ td {
     widows: 50px;
 }
 
+#iconoTareas {
+    height: 10px;
+    widows: 10px;
+}
+
 .iconoNOTOK {
     height: 50px;
     widows: 50px;

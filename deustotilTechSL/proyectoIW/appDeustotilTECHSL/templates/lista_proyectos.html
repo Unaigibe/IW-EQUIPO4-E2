@@ -7,6 +7,7 @@
             <th>Nombre de proyecto</th>
             <th>Descripcion</th>
             <th>Cliente</th>
+            <th>Mas acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -15,16 +16,17 @@
             <td>{{ proyecto.nombre}}</td>
             <td>{{ proyecto.descripcion }}</td>
             <td>{{ proyecto.cliente }}</td>
-            <td class="celdaIconos"><a href="{% url 'proyecto' proyecto.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}">Detalles</a>
-                <a href="{% url 'lista_tareas' tarea.id %}"><img id="iconoTareas" src="{% static 'img/iconoTareas.png' %}">Tareas a Realizar</a>
-                <a href="{% url 'modificar_proyecto' proyecto.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}">Modificar proyecto</a>
-                <a href="{% url 'eliminar_proyecto' proyecto.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}">Eliminar proyecto</a>
+            <td class="celdaIconos"><a href="{% url 'proyecto' proyecto.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
+
+                <a href="{% url 'modificar_proyecto' proyecto.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
+                <a href="{% url 'eliminar_proyecto' proyecto.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
 
 
         </tr>
         {% endfor %}
     </tbody>
 </table>
-<a class="boton" href="{% url 'nuevo_proyecto' %}"><img id="iconoAñadir" src="{% static 'img/iconoAñadir.png' %}">Añadir un proyecto</a>
+<br>
+<a class="boton" href="{% url 'nuevo_proyecto' %}">Añadir un proyecto</a>
 
 {% endblock %}
