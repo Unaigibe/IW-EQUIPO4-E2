@@ -27,7 +27,7 @@ class ProyectoListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ProyectoListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Proyectos'
+        context['titulo_pagina'] = 'Proyectos'
         return context
 
 
@@ -95,7 +95,7 @@ class TareaListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TareaListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Tareas'
+        context['titulo_pagina'] = 'Tareas'
         return context
 
 
@@ -157,7 +157,7 @@ class EmpleadoListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(EmpleadoListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Empleados'
+        context['titulo_pagina'] = 'Empleados'
         return context
 
 

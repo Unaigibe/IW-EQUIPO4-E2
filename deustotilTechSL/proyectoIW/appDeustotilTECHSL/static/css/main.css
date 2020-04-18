@@ -135,6 +135,17 @@ nav {
     background-color: white;
     padding: 8px;
     width: auto;
+    letter-spacing: 1px;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+article {
+    height: auto;
+    width: auto;
+    padding-left: 3x;
+    padding-right: 3px;
+    float: none;
 }
 
 .seccionesPortada {
