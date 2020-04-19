@@ -1,6 +1,4 @@
 from django import forms
-from django.forms import ImageField
-from django.utils.safestring import mark_safe
 from .models import Proyecto, Tarea, Empleado, Cliente
 
 
@@ -22,6 +20,10 @@ class ModificarProyectoForm(forms.ModelForm):
     class Meta:
         model = Proyecto
         fields = '__all__'
+        widgets = {
+            'fecha_inicio': DateInput(),
+            'fecha_fin': DateInput()
+        }
 
 
 class TareaForm(forms.ModelForm):
@@ -38,6 +40,10 @@ class ModificarTareaForm(forms.ModelForm):
     class Meta:
         model = Tarea
         exclude = ['nota_adicional']
+        widgets = {
+            'fecha_inicio': DateInput(),
+            'fecha_fin': DateInput()
+        }
 
 
 class UpdateNotaTareaForm(forms.ModelForm):

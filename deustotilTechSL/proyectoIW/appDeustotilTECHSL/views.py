@@ -2,11 +2,19 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
-
-
 from .models import Proyecto, Tarea, Empleado, Cliente
 from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, \
     UpdateNotaTareaForm, ModificarProyectoForm, ModificarTareaForm
+
+"""""
+def home(request):
+    numProyectos = Proyecto.objects.all().count()
+    numClientes = Cliente.objects.all().count()
+    numEmpleados = Empleado.objects.all().count()
+    context = {'numProyectos': numProyectos, 'numClientes': numClientes, 'numEmpleados': numEmpleados,
+               'titulo_pagina': 'Nuestra empresa'}
+    return render(request, 'home.html', context)
+"""""
 
 
 def home(request):
@@ -16,7 +24,6 @@ def home(request):
     context = {'numProyectos': numProyectos, 'numClientes': numClientes, 'numEmpleados': numEmpleados,
                'titulo_pagina': 'Nuestra empresa'}
     return render(request, 'home.html', context)
-
 
 # ESPACIO PARA LAS VISTAS DE PROYECTOS
 

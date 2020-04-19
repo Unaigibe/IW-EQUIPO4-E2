@@ -27,7 +27,7 @@ class Empleado(models.Model):
     telefono = models.IntegerField()
 
     def __str__(self):
-        return f'{self.nombre} {self.apellido1}'
+        return f'{self.nombre}'
 
 
 class Tarea(models.Model):
@@ -41,7 +41,7 @@ class Tarea(models.Model):
     nota_adicional = models.TextField(default='Rellena este campo con información adicional',max_length=750)
 
     def __str__(self):
-        return f'{self.nombre}-> {self.descripcion}'
+        return f'{self.nombre}'
 
 
 class Cliente(models.Model):
