@@ -1,6 +1,8 @@
 {% extends "index.html" %}
-
+{% load static %}
 {% block contenido %}
+
+    <a href="javascript: history.go(-1)"><img class="iconoAtras" src="{% static 'img/iconoAtras.png' %}"></a>
 
 <table class="tablaObjeto">
     <tr>

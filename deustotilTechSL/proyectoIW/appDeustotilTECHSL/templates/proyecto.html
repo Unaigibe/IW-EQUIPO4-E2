@@ -1,6 +1,8 @@
 {% extends "index.html" %}
-
+{% load static %}
 {% block contenido %}
+
+    <a href="javascript: history.go(-1)"><img class="iconoAtras" src="{% static 'img/iconoAtras.png' %}"></a>
 
 <table class="tablaObjeto">
     <tr>
@@ -25,16 +27,30 @@
     </tr>
     <tr>
         <td>Cliente:</td>
-        <td>{{ proyecto.cliente }}</td>
+        <td><a href="{% url 'cliente' proyecto.cliente.id %}"> {{ proyecto.cliente }}</a></td>
     </tr>
     <tr>
         <td>Tareas a Realizar:</td>
-        <td>{{ proyecto.tareas_a_realizar.get }}</td>
+        <td>
+            <ul>{% for tarea in proyecto.tareas_a_realizar.all %}
+                <li>
+                    <a href="{% url 'tarea' tarea.id %}"> {{ tarea.nombre }}{% endfor %}</a></li>
+            </ul>
+        </td>
+
     </tr>
         <tr>
         <td>Empleados que participan:</td>
-        <td>{{ proyecto.empleados.get }}</td>
+        <td>
+            <ul>{% for empleado in proyecto.empleados.all %}
+                <li>
+                    <a href="{% url 'empleado' empleado.id %}"> {{ empleado.nombre }} {{empleado.apellido1}}{% endfor %}</a></li>
+            </ul>
+        </td>
     </tr>
 </table>
 
 {% endblock %}
+
+
+

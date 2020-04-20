@@ -8,8 +8,8 @@ urlpatterns = [
     path('lista_proyectos/<int:pk>/', views.ProyectoDetailView.as_view(), name='proyecto'),
     path('lista_proyectos/crear/', views.NuevoProyecto.as_view(), name='nuevo_proyecto'),
     path('lista_proyectos/editar/', views.TareaListView.as_view(), name='lista_tareas'),
-    path('lista_tareas/modificar_tarea/<pk>/', views.ModificarProyecto.as_view(), name='modificar_proyecto'),
-    path('lista_tareas/eliminar_tarea/<pk>/', views.EliminarProyecto.as_view(), name='eliminar_proyecto'),
+    path('lista_tareas/modificar_proyecto/<pk>/', views.ModificarProyecto.as_view(), name='modificar_proyecto'),
+    path('lista_tareas/eliminar_proyecto/<pk>/', views.EliminarProyecto.as_view(), name='eliminar_proyecto'),
 
     path('lista_tareas/', views.TareaListView.as_view(), name='lista_tareas'),
     path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),

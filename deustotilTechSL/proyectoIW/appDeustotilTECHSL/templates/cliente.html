@@ -2,8 +2,7 @@
 {% load static %}
 {% block contenido %}
 
-    <a href="{% url 'lista_clientes' %}"><img class="iconoAtras" src="{% static 'img/iconoAtras.png' %}"></a>
-
+    <a href="javascript: history.go(-1)"><img class="iconoAtras" src="{% static 'img/iconoAtras.png' %}"></a>
 <table class="tablaObjeto">
     <tr>
         <td>Empresa:</td>
