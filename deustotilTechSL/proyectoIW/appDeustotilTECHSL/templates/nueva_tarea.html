@@ -5,8 +5,7 @@
 <form class="formularios" method="POST">
     {{ form.as_p }}
     {% csrf_token %}
-    <input class="iconoOK" type="image" src="{% static 'img/iconoOK.png' %}" alt="Submit">
-    <a href="{% url 'lista_tareas' %}"><img class="iconoNOTOK" src="{% static 'img/iconoNOTOK.png' %}"></a>
+    <input href="javascript: history.go(-1)" class="iconoOK" type="image"  src="{% static 'img/iconoOK.png' %}" alt="Submit">
+    <a href="javascript: history.go(-1)"><img class="iconoNOTOK" src="{% static 'img/iconoNOTOK.png' %}"></a>
 </form>
-
 {% endblock %}

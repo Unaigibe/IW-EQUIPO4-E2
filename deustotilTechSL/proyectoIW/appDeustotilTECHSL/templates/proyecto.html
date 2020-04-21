@@ -22,7 +22,7 @@
         <td>{{ proyecto.fecha_fin }}</td>
     </tr>
     <tr>
-        <td>Presupuesto:</td>
+        <td>Presupuesto (€):</td>
         <td>{{ proyecto.presupuesto }}</td>
     </tr>
     <tr>
@@ -44,7 +44,8 @@
         <td>
             <ul>{% for empleado in proyecto.empleados.all %}
                 <li>
-                    <a href="{% url 'empleado' empleado.id %}"> {{ empleado.nombre }} {{empleado.apellido1}}{% endfor %}</a></li>
+                    <a href="{% url 'empleado' empleado.id %}"> {{ empleado.nombre }} {{empleado.apellido1}}{% endfor %}</a>
+                </li>
             </ul>
         </td>
     </tr>

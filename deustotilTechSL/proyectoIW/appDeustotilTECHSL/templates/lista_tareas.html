@@ -20,8 +20,8 @@
             <td>{{ tarea.responsable}}</td>
             <td class="celdaIconos"><a href="{% url 'tarea' tarea.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
                 <a href="{% url 'escribir_nota' tarea.id %}"><img id="iconoAnotar" src="{% static 'img/iconoAnotar.png' %}"></a>
-                <a href="{% url 'eliminar_tarea' tarea.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
                 <a href="{% url 'modificar_tarea' tarea.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
+                <a href="{% url 'eliminar_tarea' tarea.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
             </td>
         </tr>
         {% endfor %}

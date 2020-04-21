@@ -21,12 +21,12 @@
         <td>{{ cliente.apellido1_contacto }}</td>
     </tr>
     <tr>
-        <td>Telefono de contacto:</td>
-        <td>{{ cliente.telf_cliente }}</td>
-    </tr>
-    <tr>
         <td>Email</td>
         <td><a href="mailto:{{ cliente.email }}"><img id="iconoMail" src="{% static 'img/iconoMail.png' %}"></a></td>
+    </tr>
+      <tr>
+        <td>Telefono de contacto:</td>
+        <td><a href="https://api.whatsapp.com/send?phone=+34{{telf_cliente.telefono}}"target="_blank"><img id="iconoWA" src="{% static 'img/iconoWA.png' %}"></a></td>
     </tr>
 </table>
 {% endblock %}

@@ -1,5 +1,4 @@
-from datetime import date, datetime, timezone, timedelta
-
+from datetime import date
 from django.db import models
 
 
@@ -27,7 +26,7 @@ class Empleado(models.Model):
     telefono = models.IntegerField()
 
     def __str__(self):
-        return f'{self.nombre}'
+        return f'{self.nombre} {self.apellido1}'
 
 
 class Tarea(models.Model):
@@ -41,7 +40,7 @@ class Tarea(models.Model):
     nota_adicional = models.TextField(default='Rellena este campo con información adicional',max_length=750)
 
     def __str__(self):
-        return f'{self.nombre}'
+        return f'{self.nombre}-> {self.descripcion}'
 
 
 class Cliente(models.Model):

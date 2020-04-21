@@ -24,7 +24,7 @@ head {
 }
 
 #iconoHeader {
-    background-color: blue;
+    background-color: black;
     padding: 3px;
     width: 280px;
 }
@@ -101,26 +101,31 @@ td {
     width: 60px;
 }
 
+#iconoTareas {
+    height: 50px;
+    width: 50px;
+}
+
 .iconoOK {
     height: 50px;
-    widows: 50px;
+    width: 50px;
 }
 
 .iconoAtras {
     height: 50px;
-    widows: 50px;
+    width: 50px;
     float: left;
     margin-right: 8px;
 }
 
 #iconoTareas {
-    height: 10px;
-    widows: 10px;
+    height: 30px;
+    width: 30px;
 }
 
 .iconoNOTOK {
     height: 50px;
-    widows: 50px;
+    width: 50px;
 }
 
 header {
@@ -193,6 +198,7 @@ h1 {
 
 h2 {
     color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 a {
