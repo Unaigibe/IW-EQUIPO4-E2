@@ -6,7 +6,8 @@ from .models import Proyecto, Tarea, Empleado, Cliente
 from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, \
     UpdateNotaTareaForm, ModificarProyectoForm, ModificarTareaForm
 
-
+# VISTA HOME
+# EN esta vista se muestran 3 variables de la BBDD. Dichas variables aparecerán en la vista home mostrando cuantos proyectos, clientes y empleados existen.
 def home(request):
     numProyectos = Proyecto.objects.all().count()
     numClientes = Cliente.objects.all().count()
@@ -16,9 +17,8 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-# ESPACIO PARA LAS VISTAS DE PROYECTOS
-
-
+# VISTAS PARA PROYECTOS
+# Permite listar todos los proyectos contenidos en la BBDD
 class ProyectoListView(ListView):
     model = Proyecto
     queryset = Proyecto.objects.order_by('nombre')
@@ -30,6 +30,7 @@ class ProyectoListView(ListView):
         return context
 
 
+# Permite visualizar todos los campos de un proyecto
 class ProyectoDetailView(DetailView):
     model = Proyecto
     template_name = 'proyecto.html'
@@ -40,6 +41,7 @@ class ProyectoDetailView(DetailView):
         return context
 
 
+# Permite crear un proyecto nuevo
 class NuevoProyecto(View):
 
     def get(self, request, *args, **kwargs):
@@ -58,6 +60,7 @@ class NuevoProyecto(View):
         return render(request, 'nuevo_proyecto.html', {'form': form})
 
 
+# Permite modificar un proyecto existente
 class ModificarProyecto(UpdateView):
     model = Proyecto
     form_class = ModificarProyectoForm
@@ -65,6 +68,7 @@ class ModificarProyecto(UpdateView):
     success_url = '/index/lista_proyectos'
 
 
+# Permite eliminar un proyecto existente
 class EliminarProyecto(DeleteView):
     model = Proyecto
     form_class = ProyectoForm
@@ -72,8 +76,8 @@ class EliminarProyecto(DeleteView):
     success_url = '/index/lista_proyectos'
 
 
-# ESPACIO PARA LAS VISTAS DE TAREAS
-
+# VISTAS PARA TAREAS
+# Permite listar todas las tareas contenidas en la BBDD
 class TareaListView(ListView):
     model = Tarea
     queryset = Tarea.objects.order_by('nombre')
@@ -85,6 +89,7 @@ class TareaListView(ListView):
         return context
 
 
+# Permite visualizar todos los campos de una tarea
 class TareaDetailView(DetailView):
     model = Tarea
     template_name = 'tarea.html'
@@ -95,6 +100,7 @@ class TareaDetailView(DetailView):
         return context
 
 
+# Permite crear una tarea nueva
 class NuevaTarea(View):
     def get(self, request, *args, **kwargs):
         form = TareaForm()
@@ -112,6 +118,7 @@ class NuevaTarea(View):
         return render(request, 'nueva_tarea.html', {'form': form})
 
 
+# Permite modificar una tarea existente
 class ModificarTarea(UpdateView):
     model = Tarea
     form_class = ModificarTareaForm
@@ -119,6 +126,7 @@ class ModificarTarea(UpdateView):
     success_url = '/index/lista_tareas'
 
 
+# Permite escribir una nota en una tarea existente
 class EscribirNota(UpdateView):
     model = Tarea
     form_class = UpdateNotaTareaForm
@@ -126,6 +134,7 @@ class EscribirNota(UpdateView):
     success_url = '/index/lista_tareas'
 
 
+# Permite eliminar una tarea existente
 class EliminarTarea(DeleteView):
     model = Tarea
     form_class = TareaForm
@@ -133,9 +142,8 @@ class EliminarTarea(DeleteView):
     success_url = '/index/lista_tareas'
 
 
-# ESPACIO PARA LAS VISTAS DE EMPLEADO
-
-
+# VISTAS PARA EMPLEADO
+# Permite listar todos los empleados contenidos en la BBDD
 class EmpleadoListView(ListView):
     model = Empleado
     queryset = Empleado.objects.order_by('nombre')
@@ -147,6 +155,7 @@ class EmpleadoListView(ListView):
         return context
 
 
+# Permite crear un empleado nuevo
 class NuevoEmpleado(View):
     def get(self, request, *args, **kwargs):
         form = EmpleadoForm()
@@ -164,6 +173,7 @@ class NuevoEmpleado(View):
         return render(request, 'nuevo_empleado.html', {'form': form})
 
 
+# Permite visualizar todos los campos de un empleado
 class EmpleadoDetailView(DetailView):
     model = Empleado
     template_name = 'empleado.html'
@@ -174,6 +184,7 @@ class EmpleadoDetailView(DetailView):
         return context
 
 
+# Permite modificar un empleado existente
 class ModificarEmpleado(UpdateView):
     model = Empleado
     form_class = EmpleadoForm
@@ -181,6 +192,7 @@ class ModificarEmpleado(UpdateView):
     success_url = '/index/lista_empleados/'
 
 
+# Permite eliminar un empleado existente
 class EliminarEmpleado(DeleteView):
     model = Empleado
     form_class = EmpleadoForm
@@ -188,10 +200,8 @@ class EliminarEmpleado(DeleteView):
     success_url = '/index/lista_empleados/'
 
 
-#####ESPACIO PARA LAS VISTAS DE CLIENTE
-#
-
-
+# VISTAS PARA CLIENTE
+# Permite listar todos los clientes contenidos en la BBDD
 class ClienteListView(ListView):
     model = Cliente
     queryset = Cliente.objects.order_by('nombre_empresa')
@@ -203,6 +213,7 @@ class ClienteListView(ListView):
         return context
 
 
+# Permite crear un cliente nuevo
 class NuevoCliente(View):
     def get(self, request, *args, **kwargs):
         form = ClienteForm()
@@ -220,6 +231,7 @@ class NuevoCliente(View):
         return render(request, 'nuevo_cliente.html', {'form': form})
 
 
+# Permite visualizar todos los campos de un cliente
 class ClienteDetailView(DetailView):
     model = Cliente
     template_name = 'cliente.html'
@@ -230,6 +242,7 @@ class ClienteDetailView(DetailView):
         return context
 
 
+# Permite modificar un cliente existente
 class ModificarCliente(UpdateView):
     model = Cliente
     form_class = ClienteForm
@@ -237,6 +250,7 @@ class ModificarCliente(UpdateView):
     success_url = '/index/lista_clientes'
 
 
+# Permite eliminar un cliente existente
 class EliminarCliente(DeleteView):
     model = Cliente
     form_class = ClienteForm
