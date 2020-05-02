@@ -23,6 +23,15 @@ head {
     background-color: black;
 }
 
+h1 {
+    color: black;
+}
+
+h2 {
+    color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 #iconoHeader {
     background-color: black;
     padding: 3px;
@@ -185,15 +194,6 @@ article {
     padding: 2px;
     margin-left: 8px;
     margin-right: 8px;
-}
-
-h1 {
-    color: black;
-}
-
-h2 {
-    color: blue;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 a {
