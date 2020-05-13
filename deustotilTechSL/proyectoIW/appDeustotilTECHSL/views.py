@@ -1,11 +1,38 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
+from django.forms.models import model_to_dict
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from .models import Proyecto, Tarea, Empleado, Cliente
 from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, \
     UpdateNotaTareaForm, ModificarProyectoForm, ModificarTareaForm
 
+
+class ListaEmpleadoView(View):
+    def get(self, request):
+         listaEmpleados = Empleado.objects.all()
+         return JsonResponse(list(listaEmpleados.values()), safe=False)
+
+
+class EmpleadoDetailView(View):
+    def get(self, request,pk):
+        empleado = Empleado.objects.get(pk=pk)
+        return JsonResponse(model_to_dict(empleado))
+
+
+class ListaClientesView(View):
+    def get(self, request):
+         listaClientes = Cliente.objects.all()
+         return JsonResponse(list(listaClientes.values()), safe=False)
+
+
+class ClienteDetailView(View):
+    def get(self, request,pk):
+        cliente = Cliente.objects.get(pk=pk)
+        return JsonResponse(model_to_dict(cliente))
+
+
+"""
 # VISTA HOME
 # EN esta vista se muestran 3 variables de la BBDD. Dichas variables aparecerán en la vista home mostrando cuantos proyectos, clientes y empleados existen.
 def home(request):
@@ -256,3 +283,5 @@ class EliminarCliente(DeleteView):
     form_class = ClienteForm
     template_name = 'eliminar_cliente.html'
     success_url = '/index/lista_clientes/'
+
+"""
