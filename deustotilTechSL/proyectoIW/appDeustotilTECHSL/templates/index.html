@@ -13,17 +13,23 @@
         <h2>Tu empresa TIC de confianza</h2>
         <nav>
             <flexbox></flexbox>
-            <a href="{% url 'home' %}">Inicio</a>
-            <a href="{% url 'lista_proyectos' %}">Nuestros Proyectos</a>
-            <a href="{% url 'lista_tareas' %}">Ver Tareas</a></li>
-            <a href="{% url 'lista_clientes' %}">Nuestros Clientes</a>
-            <a href="{% url 'lista_empleados' %}">Nuestra Plantilla</a>
+        <select id="seleccion_Elemento" class="custom-select custom-select-lg mb-3">
+          <option value="" selected disabled>Selecciona un elemento</option>
+          <option value="Proyectos">Proyectos</option>
+          <option value="Tareas">Tareas</option>
+          <option value="Empleados">Empleados</option>
+          <option value="Clientes">Clientes</option>
+        </select>
         </nav>
     </header>
     <main>
-        <h2>{{ titulo_pagina }}</h2>
-        {% block contenido %}
-        {% endblock %}
+        <section>
+      <div>
+        <h2 id="elemento"></h2>
+        <ul id="list" class="list-group"></ul>
+        </section>
+    </div>
+    <script src="listar_empleados.js"></script>
     </main>
     <footer>
         <p>© 2019-2020 Deustotil Tech SL Todos los derechos reservados.</p>

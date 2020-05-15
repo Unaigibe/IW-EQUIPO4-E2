@@ -1,29 +1,27 @@
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.utils.decorators import method_decorator
 from django.views import View
 from django.forms.models import model_to_dict
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView
+from django.views.decorators.csrf import csrf_exempt
 from .models import Proyecto, Tarea, Empleado, Cliente
-from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, \
-    UpdateNotaTareaForm, ModificarProyectoForm, ModificarTareaForm
 
 
-class ListaEmpleadoView(View):
-    def get(self, request):
-         listaEmpleados = Empleado.objects.all()
-         return JsonResponse(list(listaEmpleados.values()), safe=False)
-
-
-class EmpleadoDetailView(View):
-    def get(self, request,pk):
-        empleado = Empleado.objects.get(pk=pk)
-        return JsonResponse(model_to_dict(empleado))
-
-
+@method_decorator(csrf_exempt, name='dispatch')
 class ListaClientesView(View):
     def get(self, request):
-         listaClientes = Cliente.objects.all()
-         return JsonResponse(list(listaClientes.values()), safe=False)
+        listaClientes = Cliente.objects.all()
+        return JsonResponse(list(listaClientes.values()), safe=False)
+
+    def post(self, request):
+        cliente = Cliente()
+        cliente.nombre_empresa = request.POST["nombre_empresa"]
+        cliente.nombre_contacto = request.POST["nombre_contacto"]
+        cliente.apellido1_contacto = request.POST["apellido1_contacto"]
+        cliente.apellido2_contacto = request.POST["apellido2_contacto"]
+        cliente.telf_cliente = request.POST["telf_cliente"]
+        cliente.email_cliente = request.POST["email_cliente"]
+        cliente.save()
+        return JsonResponse(model_to_dict(cliente))
 
 
 class ClienteDetailView(View):
@@ -32,9 +30,41 @@ class ClienteDetailView(View):
         return JsonResponse(model_to_dict(cliente))
 
 
+
+class ListaEmpleadoView(View):
+    def get(self, request):
+        if('nombre' in request.GET):
+            listaEmpleados = Empleado.objects.filter(name_contains=request.GET['nombre'])
+        else:
+            listaEmpleados = Empleado.objects.all()
+        return JsonResponse(list(listaEmpleados.values()), safe=False)
+
+    def post(self, request):
+        empleado = Empleado()
+        empleado.dni = request.POST["dni"]
+        empleado.foto_perfil = request.POST["foto_perfil"]
+        empleado.nombre = request.POST["nombre"]
+        empleado.apellido1 = request.POST["apellido1"]
+        empleado.apellido2 = request.POST["apellido2"]
+        empleado.email = request.POST["email"]
+        empleado.telefono = request.POST["telefono"]
+        empleado.save()
+        return JsonResponse(model_to_dict(empleado))
+
+class EmpleadoDetailView(View):
+    def get(self, request,pk):
+        empleado = Empleado.objects.get(pk=pk)
+        urlFotoEmpleado = empleado.foto_perfil.url
+        libEmpleado = model_to_dict(empleado)
+        libEmpleado['foto_perfil'] = urlFotoEmpleado
+        return JsonResponse(libEmpleado)
+
+
+
+
 """
 # VISTA HOME
-# EN esta vista se muestran 3 variables de la BBDD. Dichas variables aparecerán en la vista home mostrando cuantos proyectos, clientes y empleados existen.
+#EN esta vista se muestran 3 variables de la BBDD. Dichas variables aparecerán en la vista home mostrando cuantos proyectos, clientes y empleados existen.
 def home(request):
     numProyectos = Proyecto.objects.all().count()
     numClientes = Cliente.objects.all().count()
