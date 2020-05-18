@@ -1,13 +1,26 @@
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView, DetailView
+
 from .models import Proyecto, Tarea, Empleado, Cliente
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class ListaClientesView(View):
+
+
+def home(request):
+    numProyectos = Proyecto.objects.all().count()
+    numClientes = Cliente.objects.all().count()
+    numEmpleados = Empleado.objects.all().count()
+    context = {'numProyectos': numProyectos, 'numClientes': numClientes, 'numEmpleados': numEmpleados,
+               'titulo_pagina': 'Nuestra empresa'}
+    return render(request, 'home.html', context)
+
+class APIListaClientesView(View):
     def get(self, request):
         listaClientes = Cliente.objects.all()
         return JsonResponse(list(listaClientes.values()), safe=False)
@@ -24,21 +37,53 @@ class ListaClientesView(View):
         return JsonResponse(model_to_dict(cliente))
 
 
-class ClienteDetailView(View):
-    def get(self, request,pk):
-        cliente = Cliente.objects.get(pk=pk)
-        return JsonResponse(model_to_dict(cliente))
+class ListaClientesView(TemplateView):
+    template_name = 'lista_clientes.html'
+
+
+class ClienteDetailView(DetailView):
+    model = Cliente
+    template_name = 'cliente.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ClienteDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalle de este Cliente'
+        return context
 
 
 
-class ListaEmpleadoView(View):
+@method_decorator(csrf_exempt, name='dispatch')
+class APIListaEmpleadosView(View):
     def get(self, request):
-        if('nombre' in request.GET):
-            listaEmpleados = Empleado.objects.filter(name_contains=request.GET['nombre'])
-        else:
-            listaEmpleados = Empleado.objects.all()
+        listaEmpleados = Empleado.objects.all()
         return JsonResponse(list(listaEmpleados.values()), safe=False)
 
+
+class ListaEmpleadosView(TemplateView):
+    template_name = 'lista_empleados.html'
+
+
+class APIListaProyectosView(View):
+    def get(self, request):
+        listaProyectos = Proyecto.objects.all()
+        return JsonResponse(list(listaProyectos.values()), safe=False)
+
+
+class ListaProyectosView(TemplateView):
+    template_name = 'lista_proyectos.html'
+
+
+class APIListaTareasView(View):
+    def get(self, request):
+        listaTareas = Tarea.objects.all()
+        return JsonResponse(list(listaTareas.values()), safe=False)
+
+
+class ListaTareasView(TemplateView):
+    template_name = 'lista_tareas.html'
+
+
+"""
     def post(self, request):
         empleado = Empleado()
         empleado.dni = request.POST["dni"]
@@ -50,6 +95,7 @@ class ListaEmpleadoView(View):
         empleado.telefono = request.POST["telefono"]
         empleado.save()
         return JsonResponse(model_to_dict(empleado))
+"""
 
 class EmpleadoDetailView(View):
     def get(self, request,pk):
@@ -65,13 +111,7 @@ class EmpleadoDetailView(View):
 """
 # VISTA HOME
 #EN esta vista se muestran 3 variables de la BBDD. Dichas variables aparecerán en la vista home mostrando cuantos proyectos, clientes y empleados existen.
-def home(request):
-    numProyectos = Proyecto.objects.all().count()
-    numClientes = Cliente.objects.all().count()
-    numEmpleados = Empleado.objects.all().count()
-    context = {'numProyectos': numProyectos, 'numClientes': numClientes, 'numEmpleados': numEmpleados,
-               'titulo_pagina': 'Nuestra empresa'}
-    return render(request, 'home.html', context)
+
 
 
 # VISTAS PARA PROYECTOS

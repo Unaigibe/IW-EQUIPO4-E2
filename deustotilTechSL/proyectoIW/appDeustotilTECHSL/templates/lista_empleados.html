@@ -1,31 +1,32 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block contenido %}
-<table class="tablaListas">
-    <thead>
-        <tr>
-            <th>DNI</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for empleado in empleado_list %}
-        <tr>
-            <td>{{ empleado.dni}}</td>
-            <td>{{ empleado.nombre }}</td>
-            <td>{{ empleado.apellido1 }}</td>
-            <td><a href="{% url 'empleado' empleado.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
-            <a href="{% url 'eliminar_empleado' empleado.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
-            <a href="{% url 'modificar_empleado' empleado.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+
+<div id="empleados"></div>
+<script src="{% static 'js/listar_empleados.js'%}"></script>
+
 <br>
+<script src="{% static 'js/listar_clientes.js'%}"></script>
+<div id="boton">
+        <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear Empleado</a>
+</div>
+<div id="boton_cerrar" style="display:none">
+<a class="boton_cerrar" href="javascript:cerrarForm();" style='cursor: pointer;'>Cerrar Formulario</a>
+</div>
 
-<a class="boton" href="{% url 'nuevo_empleado' %}">Crear empleado</a>
-
-
+<br>
+<br>
+<div id="formulario" style="display:none" >
+<form method="POST">
+    {% csrf_token %}
+            <input type="text" placeholder="DNI" name="DNI" id="DNI"><a> Foto Perfil:</a>
+            <input type="file" placeholder="Foto" name="foto_perfil" id="foto_perfil">
+            <input type="text" placeholder="Nombre" name="nombre" id="nombre">
+            <input type="text" placeholder="Primer Apellido" name="apellido1" id="apellido1">
+            <input type="text" placeholder="Segundo Apellido" name="apellido2" id="apellido2">
+            <input type="email" placeholder="eMail" name="email" id="email">
+            <input type="number" placeholder="Telefono" name="telf" id="telf">
+            <input id="btn-nuevo-cliente" type="submit" value="Guardar">
+</form>
+</div>
 {% endblock %}

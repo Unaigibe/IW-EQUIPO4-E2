@@ -1,30 +1,34 @@
 {% extends 'index.html' %}
 {% load static %}
+
 {% block contenido %}
-<table class="tablaListas">
-    <thead>
-        <tr>
-            <th>Empresa</th>
-            <th>Contacto</th>
-            <th>Telefono</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for cliente in cliente_list %}
-        <tr>
-            <td>{{ cliente.nombre_empresa}}</td>
-            <td>{{ cliente.nombre_contacto }}</td>
-            <td>{{ cliente.telf_cliente }}</td>
-            <td class="celdaIconos"><a href="{% url 'cliente' cliente.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
-            <a href="{% url 'eliminar_cliente' cliente.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
-            <a href="{% url 'modificar_cliente' cliente.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+
+<div id="clientes"></div>
 <br>
-<a class="boton" href="{% url 'nuevo_cliente' %}">Crear cliente</a>
+<script src="{% static 'js/listar_clientes.js'%}"></script>
+<div id="boton">
+        <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear cliente</a>
+</div>
+<div id="boton_cerrar" style="display:none">
+<a class="boton_cerrar" href="javascript:cerrarForm();" style='cursor: pointer;'>Cerrar Formulario</a>
+</div>
+
+<br>
+<br>
+
+<div id="formulario" style="display:none" >
+<form method="POST">
+    {% csrf_token %}
+            <input type="text" placeholder="Nombre Empresa" name="nombre_empresa" id="nombre_empresa">
+            <input type="text" placeholder="Nombre Contacto" name="nombre_contacto" id="nombre_contacto">
+            <input type="text" placeholder="Primer Apellido" name="apellido1_contacto" id="apellido1_contacto">
+            <input type="text" placeholder="Segundo Apellido" name="apellido2_contacto" id="apellido2_contacto">
+            <input type="number" placeholder="Telefono" name="telf_cliente" id="telf_cliente">
+            <input type="email" placeholder="eMail" name="email_cliente" id="email_cliente">
+            <input id="btn-nuevo-cliente" type="submit" value="Guardar">
+</form>
+</div>
+
 
 
 {% endblock %}

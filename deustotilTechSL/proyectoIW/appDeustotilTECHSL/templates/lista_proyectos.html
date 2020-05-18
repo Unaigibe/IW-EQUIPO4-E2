@@ -1,29 +1,9 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block contenido %}
-<table>
-    <thead>
-        <tr>
-            <th>Proyecto</th>
-            <th>Descripcion</th>
-            <th>Cliente</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for proyecto in proyecto_list %}
-        <tr>
-            <td>{{ proyecto.nombre}}</td>
-            <td>{{ proyecto.descripcion }}</td>
-            <td>{{ proyecto.cliente }}</td>
-            <td class="celdaIconos">
-                <a href="{% url 'proyecto' proyecto.id %}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
-                <a href="{% url 'eliminar_proyecto' proyecto.id %}"><img id="iconoBorrar" src="{% static 'img/iconoBorrar.png' %}"></a>
-                <a href="{% url 'modificar_proyecto' proyecto.id %}"><img id="iconoModificar" src="{% static 'img/iconoModificar.png' %}"></a>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<br>
-<a class="boton" href="{% url 'nuevo_proyecto' %}">Añadir un proyecto</a>
+
+<div id="proyectos"></div>
+<script src="{% static 'js/listar_proyectos.js'%}"></script>
+
+
 {% endblock %}
