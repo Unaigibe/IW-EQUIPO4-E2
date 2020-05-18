@@ -15,7 +15,7 @@ function crearCliente(nombre_empresa, nombre_contacto, telf_cliente, id){
             <td>${nombre_empresa}</td>
             <td>${nombre_contacto}</td>
             <td>${telf_cliente}</td>
-            <td class="celdaIconos"><a href="/index/clientes/${id}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
+            <td class="celdaIconos"><a href="/index/clientes/${id}">Ver más</a>
         </tr>`;
 }
 
@@ -27,7 +27,6 @@ function generarHTMLTablaClientes(clientes) {
                     <td>Nombre Empresa</td>
                     <td>Nombre Contacto</td>
                     <td>Telf Contacto</td>
-                    <td>Acciones</td>
                 </tr>
             </thead>
             <tbody>

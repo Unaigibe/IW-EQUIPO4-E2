@@ -9,13 +9,14 @@ function loadData() {
 
 loadData();
 
-function crearEmpleado(dni, nombre, apellido1, apellido2){
+function crearEmpleado(dni, nombre, apellido1, apellido2, id){
     return `
         <tr>
             <td>${dni}</td>
             <td>${nombre}</td>
             <td>${apellido1}</td>
             <td>${apellido2}</td>
+            <td class="celdaIconos"><a href="/index/empleados/${id}">Ver más</a>
         </tr>`;
 }
 
@@ -33,7 +34,7 @@ function generarHTMLTablaEmpleados(empleados) {
             <tbody>
     `;
     for(const empleado of empleados) {
-        tabla += crearEmpleado(empleado.dni, empleado.nombre, empleado.apellido1, empleado.apellido2);
+        tabla += crearEmpleado(empleado.dni, empleado.nombre, empleado.apellido1, empleado.apellido2, empleado.id);
     }
     tabla += '</tbody></table>'
     return tabla;
@@ -55,66 +56,3 @@ function cerrarForm() {
        document.getElementById('boton').style.display=''
        document.getElementById('boton_cerrar').style.display='none'
        }
-
-
-
-
-
-
-
-
-/*
-let elem = document.getElementsByClassName('seleccion');
-elem.addEventListener('click', saludar);
-
-function crearEmpleado(dni, nombre, apellido1) {
-    return `
-        <tr>
-            <td>${dni}</td>
-            <td>${nombre}</td>
-            <td>${apellido1}</td>            
-        </tr>`;
-}
-
-function crearTablaEmpleados(empleados) {
-    let tabla = `
-        <tbody>
-            <thead>
-                <tr>
-                    <td>DNI</td>
-                    <td>Nombre</td>
-                    <td>Apellido</td>
-                    <td>Acciones</td>
-                </tr>
-            </thead>
-            <tbody>
-    `;
-
-    // Recorrer el listado de tareas para crear una fila por cada tarea
-    for (const empleado of empleados) {
-        tabla += crearEmpleado(empleado.dni, empleado.nombre, empleado.apellido1);
-    }
-    tabla += '</tbody></table>'
-    return tabla;
-}
-
-fetch('http://127.0.0.1:8000/api/empleados/')
-    .then((response) => response.json())
-    .then((json) => {
-        let list = document.getElementById('list')
-        list.innerHTML = '';
-        for (let element of json) {
-            list.append(crearEmpleado(element.name));
-        }
-    });
-
-
-
-
-let empleado = crearTablaEmpleados(empleados);
-document.getElementById('empleados').innerHTML = tabla;
-
-
-
-
-*/

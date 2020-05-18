@@ -83,20 +83,6 @@ class ListaTareasView(TemplateView):
     template_name = 'lista_tareas.html'
 
 
-"""
-    def post(self, request):
-        empleado = Empleado()
-        empleado.dni = request.POST["dni"]
-        empleado.foto_perfil = request.POST["foto_perfil"]
-        empleado.nombre = request.POST["nombre"]
-        empleado.apellido1 = request.POST["apellido1"]
-        empleado.apellido2 = request.POST["apellido2"]
-        empleado.email = request.POST["email"]
-        empleado.telefono = request.POST["telefono"]
-        empleado.save()
-        return JsonResponse(model_to_dict(empleado))
-"""
-
 class EmpleadoDetailView(View):
     def get(self, request,pk):
         empleado = Empleado.objects.get(pk=pk)
@@ -104,6 +90,16 @@ class EmpleadoDetailView(View):
         libEmpleado = model_to_dict(empleado)
         libEmpleado['foto_perfil'] = urlFotoEmpleado
         return JsonResponse(libEmpleado)
+
+
+class EmpleadoDetailView(DetailView):
+    model = Empleado
+    template_name = 'empleado.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Ficha de Empleado'
+        return context
 
 
 
@@ -270,15 +266,7 @@ class NuevoEmpleado(View):
         return render(request, 'nuevo_empleado.html', {'form': form})
 
 
-# Permite visualizar todos los campos de un empleado
-class EmpleadoDetailView(DetailView):
-    model = Empleado
-    template_name = 'empleado.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Ficha de Empleado'
-        return context
 
 
 # Permite modificar un empleado existente

@@ -3,8 +3,11 @@ from . import views
 
 urlpatterns = [
     path('home/', views.home, name='home'),
+
     path('api_empleados/', views.APIListaEmpleadosView.as_view(), name='api_lista_empleados'),
     path('lista_empleados/', views.ListaEmpleadosView.as_view(), name='lista_empleados'),
+    path('empleados/<int:pk>/', views.EmpleadoDetailView.as_view(), name='empleado'),
+
 
     path('api_proyectos/', views.APIListaProyectosView.as_view(), name='api_lista_proyectos'),
     path('lista_proyectos/', views.ListaProyectosView.as_view(), name='lista_proyectos'),
@@ -19,7 +22,6 @@ urlpatterns = [
 """
     
    
-    path('empleados/<int:pk>/', views.EmpleadoDetailView.as_view(), name='empleado'),
     
     path('clientes/', views.ListaClientesView.as_view(), name='lista_clientes'),
     path('clientes/<int:pk>/', views.ClienteDetailView.as_view(), name='cliente'),
