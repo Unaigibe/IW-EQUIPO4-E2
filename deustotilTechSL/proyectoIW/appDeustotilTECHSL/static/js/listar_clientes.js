@@ -15,7 +15,7 @@ function crearCliente(nombre_empresa, nombre_contacto, telf_cliente, id){
             <td>${nombre_empresa}</td>
             <td>${nombre_contacto}</td>
             <td>${telf_cliente}</td>
-            <td class="celdaIconos"><a href="/index/clientes/${id}'"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
+            <td class="celdaIconos"><a href="/index/clientes/${id}"><img id="iconoDetalles" src="{% static 'img/iconoDetalles.png' %}"></a>
         </tr>`;
 }
 
