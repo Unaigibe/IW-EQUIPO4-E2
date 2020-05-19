@@ -16,7 +16,7 @@ function crearEmpleado(dni, nombre, apellido1, apellido2, id){
             <td>${nombre}</td>
             <td>${apellido1}</td>
             <td>${apellido2}</td>
-            <td class="celdaIconos"><a href="/index/empleados/${id}">Ver más</a>
+            <td class="celdaIconos"><a href="/index/empleado/${id}">Ver más</a>
         </tr>`;
 }
 

@@ -73,6 +73,16 @@ class ListaProyectosView(TemplateView):
     template_name = 'lista_proyectos.html'
 
 
+class ProyectoDetailView(DetailView):
+    model = Proyecto
+    template_name = 'proyecto.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProyectoDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalles de este Proyecto'
+        return context
+
+
 class APIListaTareasView(View):
     def get(self, request):
         listaTareas = Tarea.objects.all()
@@ -82,6 +92,30 @@ class APIListaTareasView(View):
 class ListaTareasView(TemplateView):
     template_name = 'lista_tareas.html'
 
+
+class TareaDetailView(DetailView):
+    model = Tarea
+    template_name = 'tarea.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TareaDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalle de esta Tarea'
+        return context
+
+
+"""
+    def post(self, request):
+        empleado = Empleado()
+        empleado.dni = request.POST["dni"]
+        empleado.foto_perfil = request.POST["foto_perfil"]
+        empleado.nombre = request.POST["nombre"]
+        empleado.apellido1 = request.POST["apellido1"]
+        empleado.apellido2 = request.POST["apellido2"]
+        empleado.email = request.POST["email"]
+        empleado.telefono = request.POST["telefono"]
+        empleado.save()
+        return JsonResponse(model_to_dict(empleado))
+"""
 
 class EmpleadoDetailView(View):
     def get(self, request,pk):
@@ -124,14 +158,7 @@ class ProyectoListView(ListView):
 
 
 # Permite visualizar todos los campos de un proyecto
-class ProyectoDetailView(DetailView):
-    model = Proyecto
-    template_name = 'proyecto.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(ProyectoDetailView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Detalles de este Proyecto'
-        return context
 
 
 # Permite crear un proyecto nuevo
@@ -183,14 +210,7 @@ class TareaListView(ListView):
 
 
 # Permite visualizar todos los campos de una tarea
-class TareaDetailView(DetailView):
-    model = Tarea
-    template_name = 'tarea.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(TareaDetailView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Detalle de esta Tarea'
-        return context
 
 
 # Permite crear una tarea nueva

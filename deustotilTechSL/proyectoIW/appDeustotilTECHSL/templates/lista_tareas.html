@@ -3,16 +3,24 @@
 {% block contenido %}
 
 
-<h1>Tareas</h1>
+<h2>Tareas</h2>
+<a>Mostrar tareas segun su estado: </a>
+<select id="estado_Tareas">
+    <option value="Abierta">Abierta</option>
+    <option value="Asignada">Asignada</option>
+    <option value="En proceso">En proceso</option>
+    <option value="Cerrada">Cerrada</option>
+    <option value="Mostrar_todas">Mostrar todas</option>
+</select>
 <div id="tareas"></div>
 
 <br>
 <script src="{% static 'js/listar_tareas.js'%}"></script>
 <div id="boton">
-        <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear Tarea</a>
+    <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear Tarea</a>
 </div>
 <div id="boton_cerrar" style="display:none">
-<a class="boton_cerrar" href="javascript:cerrarForm();" style='cursor: pointer;'>Cerrar Formulario</a>
+    <a class="boton_cerrar" href="javascript:cerrarForm();" style='cursor: pointer;'>Cerrar Formulario</a>
 </div>
 
 <br>

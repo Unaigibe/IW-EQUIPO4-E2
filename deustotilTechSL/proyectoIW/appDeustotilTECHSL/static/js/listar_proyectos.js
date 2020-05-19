@@ -9,7 +9,7 @@ function loadData() {
 
 loadData();
 
-function crearProyecto(nombre, cliente, fecha_inicio, fecha_fin){
+function crearProyecto(nombre, descripcion, fecha_inicio, fecha_fin, id){
     var fecha_inicio_Formateada = formato(fecha_inicio);
     function formato(fecha_inicio){
       return fecha_inicio.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
@@ -19,12 +19,14 @@ function crearProyecto(nombre, cliente, fecha_inicio, fecha_fin){
     function formato(fecha_fin){
       return fecha_fin.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
     }
+
     return `
         <tr>
             <td>${nombre}</td>
-            <td>${cliente}</td>
+            <td>${descripcion}</td>
             <td>${fecha_inicio_Formateada}</td>
             <td>${fecha_fin_Formateada}</td>
+            <td class="celdaIconos"><a href="/index/proyecto/${id}">Ver más</a>
         </tr>`;
 }
 
@@ -34,7 +36,7 @@ function generarHTMLTablaProyectos(proyectos) {
             <thead>
                 <tr>
                     <td>Nombre</td>
-                    <td>Cliente</td>
+                    <td>Descripcion</td>
                     <td>Fecha Inicio</td>
                     <td>Fecha Fin</td>
                 </tr>
@@ -42,7 +44,7 @@ function generarHTMLTablaProyectos(proyectos) {
             <tbody>
     `;
     for(const proyecto of proyectos) {
-        tabla += crearProyecto(proyecto.nombre, proyecto.cliente, proyecto.fecha_inicio, proyecto.fecha_fin);
+        tabla += crearProyecto(proyecto.nombre, proyecto.descripcion, proyecto.fecha_inicio, proyecto.fecha_fin, proyecto.id);
     }
     tabla += '</tbody></table>'
     return tabla;

@@ -6,18 +6,22 @@ urlpatterns = [
 
     path('api_empleados/', views.APIListaEmpleadosView.as_view(), name='api_lista_empleados'),
     path('lista_empleados/', views.ListaEmpleadosView.as_view(), name='lista_empleados'),
-    path('empleados/<int:pk>/', views.EmpleadoDetailView.as_view(), name='empleado'),
+    path('empleado/<int:pk>/', views.EmpleadoDetailView.as_view(), name='empleado'),
 
 
     path('api_proyectos/', views.APIListaProyectosView.as_view(), name='api_lista_proyectos'),
     path('lista_proyectos/', views.ListaProyectosView.as_view(), name='lista_proyectos'),
+    path('proyecto/<int:pk>/', views.ProyectoDetailView.as_view(), name='proyecto'),
+
 
     path('api_clientes/', views.APIListaClientesView.as_view(), name='api_lista_clientes'),
     path('lista_clientes/', views.ListaClientesView.as_view(), name='lista_clientes'),
-    path('clientes/<int:pk>/', views.ClienteDetailView.as_view(), name='cliente'),
+    path('cliente/<int:pk>/', views.ClienteDetailView.as_view(), name='cliente'),
 
     path('api_tareas/', views.APIListaTareasView.as_view(), name='api_lista_tareas'),
-    path('lista_tareas/', views.ListaTareasView.as_view(), name='lista_tareas')
+    path('lista_tareas/', views.ListaTareasView.as_view(), name='lista_tareas'),
+    path('tarea/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
+
     ]
 """
     
@@ -33,7 +37,6 @@ urlpatterns = [
     path('lista_tareas/eliminar_proyecto/<pk>/', views.EliminarProyecto.as_view(), name='eliminar_proyecto'),
 
     path('lista_tareas/', views.TareaListView.as_view(), name='lista_tareas'),
-    path('lista_tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
     path('lista_tareas/crear/', views.NuevaTarea.as_view(), name='nueva_tarea'),
     path('lista_tareas/escribir_nota/<pk>/', views.EscribirNota.as_view(), name='escribir_nota'),
     path('lista_tareas/modificar_tarea/<pk>/', views.ModificarTarea.as_view(), name='modificar_tarea'),

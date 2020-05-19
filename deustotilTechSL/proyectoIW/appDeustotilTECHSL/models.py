@@ -2,18 +2,6 @@ from datetime import date
 from django.db import models
 
 
-class Prioridad(models.Model):
-    prioridad = models.CharField(max_length=15)
-
-    def __str__(self):
-        return self.prioridad
-
-
-class EstadoTarea(models.Model):
-    estado_tarea = models.CharField(max_length=12)
-
-    def __str__(self):
-        return self.estado_tarea
 
 
 class Empleado(models.Model):
@@ -35,8 +23,8 @@ class Tarea(models.Model):
     fecha_inicio = models.DateField(default=date.today())
     fecha_fin = models.DateField(default=date.today())
     responsable = models.ForeignKey(Empleado, null=True, on_delete=models.SET_NULL)
-    prioridad = models.ForeignKey(Prioridad, default='Ninguna', null=True, on_delete=models.SET_NULL)
-    estadoTarea = models.ForeignKey(EstadoTarea,default='Abierta', null=True, on_delete=models.SET_NULL)
+    prioridad = models.CharField(max_length=25, default="Ninguna")
+    estadoTarea = models.CharField(max_length=25, default="Ninguna")
     nota_adicional = models.TextField(default='Rellena este campo con información adicional',max_length=750)
 
     def __str__(self):
