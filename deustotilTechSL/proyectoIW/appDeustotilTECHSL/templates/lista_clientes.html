@@ -2,20 +2,20 @@
 {% load static %}
 {% block contenido %}
 
-<h2>Clientes</h2>
 <div id="clientes"></div>
 <br>
 <script src="{% static 'js/listar_clientes.js'%}"></script>
+<script src="{% static 'js/nuevo_cliente.js'%}"></script>
 <div id="boton">
         <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear cliente</a>
 </div>
 <div id="boton_cerrar" style="display:none">
-<a class="boton_cerrar" href="javascript:cerrarForm();" style='cursor: pointer;'>Cerrar Formulario</a>
+        <a class="boton_cerrar" href="javascript:cerrarForm();" style='cursor: pointer;'>Cerrar Formulario</a>
 </div>
 <br>
 <br>
 <div id="formulario" style="display:none" >
-<form method="POST">
+<form id="formularioClienteNuevo" method="post">
     {% csrf_token %}
             <input type="text" placeholder="Nombre Empresa" name="nombre_empresa" id="nombre_empresa">
             <input type="text" placeholder="Nombre Contacto" name="nombre_contacto" id="nombre_contacto">

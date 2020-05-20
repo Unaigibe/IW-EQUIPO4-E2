@@ -2,8 +2,6 @@ from datetime import date
 from django.db import models
 
 
-
-
 class Empleado(models.Model):
     dni = models.CharField(max_length=12)
     foto_perfil = models.ImageField(upload_to='fotos_perfil/', blank=True)

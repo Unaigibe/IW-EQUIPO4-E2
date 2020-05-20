@@ -4,14 +4,16 @@
 
 
 <h2>Tareas</h2>
-<a>Mostrar tareas segun su estado: </a>
-<select id="estado_Tareas">
-    <option value="Abierta">Abierta</option>
-    <option value="Asignada">Asignada</option>
-    <option value="En proceso">En proceso</option>
-    <option value="Cerrada">Cerrada</option>
+<a>Mostrar tareas segun su prioridad: </a>
+<select id="prioridad_Tareas" onchange="loadData()">
+    <option value="Ninguna">Ninguna</option>
+    <option value="Baja">Baja</option>
+    <option value="Media">Media</option>
+    <option value="Alta">Alta</option>
+    <option value="Urgente">Urgente</option>
     <option value="Mostrar_todas">Mostrar todas</option>
 </select>
+<br>
 <div id="tareas"></div>
 
 <br>

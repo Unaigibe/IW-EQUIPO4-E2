@@ -26,7 +26,7 @@ function crearProyecto(nombre, descripcion, fecha_inicio, fecha_fin, id){
             <td>${descripcion}</td>
             <td>${fecha_inicio_Formateada}</td>
             <td>${fecha_fin_Formateada}</td>
-            <td class="celdaIconos"><a href="/index/proyecto/${id}">Ver más</a>
+            <td><a href="/index/proyecto/${id}"><img id="iconoDetalles" src='/static/img/iconoDetalles.png'></a></td>
         </tr>`;
 }
 
