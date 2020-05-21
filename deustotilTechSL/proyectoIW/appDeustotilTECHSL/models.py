@@ -14,6 +14,21 @@ class Empleado(models.Model):
     def __str__(self):
         return f'{self.nombre} {self.apellido1}'
 
+PRIORIDADES = (
+       ('Niguna','Niguna'),
+       ('Baja', 'Baja'),
+       ('Media','Media'),
+       ('Alta','Alta'),
+       ('Urgente','Urgente'),
+)
+
+ESTADO_TAREA = (
+       ('Abierta','Abierta'),
+       ('Asignada', 'Asignada'),
+       ('En proceso','En proceso'),
+       ('Cerrada','Cerrada'),
+)
+
 
 class Tarea(models.Model):
     nombre = models.CharField(max_length=25)
@@ -21,8 +36,8 @@ class Tarea(models.Model):
     fecha_inicio = models.DateField(default=date.today())
     fecha_fin = models.DateField(default=date.today())
     responsable = models.ForeignKey(Empleado, null=True, on_delete=models.SET_NULL)
-    prioridad = models.CharField(max_length=25, default="Ninguna")
-    estadoTarea = models.CharField(max_length=25, default="Ninguna")
+    prioridad = models.CharField(max_length=25, choices=PRIORIDADES, default="Ninguna")
+    estadoTarea = models.CharField(max_length=25, choices=ESTADO_TAREA, default="Asignada")
     nota_adicional = models.TextField(default='Rellena este campo con información adicional',max_length=750)
 
     def __str__(self):

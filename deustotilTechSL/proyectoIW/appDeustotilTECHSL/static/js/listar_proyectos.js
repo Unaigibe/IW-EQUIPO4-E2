@@ -35,10 +35,10 @@ function generarHTMLTablaProyectos(proyectos) {
         <table id="tabla" class="tablaListas">
             <thead>
                 <tr>
-                    <td>Nombre</td>
-                    <td>Descripcion</td>
-                    <td>Fecha Inicio</td>
-                    <td>Fecha Fin</td>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
                 </tr>
             </thead>
             <tbody>

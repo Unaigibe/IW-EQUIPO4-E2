@@ -22,9 +22,9 @@ function generarHTMLTablaClientes(clientes) {
         <table id="tabla" class="tablaListas">
             <thead>
                 <tr>
-                    <td>Nombre Empresa</td>
-                    <td>Nombre Contacto</td>
-                    <td>Telf Contacto</td>
+                    <th>Empresa</th>
+                    <th>Nombre Contacto</th>
+                    <th>Telf Contacto</th>
                 </tr>
             </thead>
             <tbody>

@@ -25,10 +25,10 @@ function generarHTMLTablaEmpleados(empleados) {
         <table id="tabla" class="tablaListas">
             <thead>
                 <tr>
-                    <td>DNI</td>
-                    <td>Nombre</td>
-                    <td>Primer Apellido</td>
-                    <td>Segundo Apellido</td>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
                 </tr>
             </thead>
             <tbody>

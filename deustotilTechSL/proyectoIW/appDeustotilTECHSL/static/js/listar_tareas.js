@@ -7,20 +7,28 @@ function loadData() {
         })
     }
 
+function formato(fecha){
+  return fecha.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
+}
+
+function limpiarTabla(){
+document.getElementById("tareas").innerHTML=""
+}
+
+
 function crearTarea(nombre, fecha_inicio, fecha_fin, prioridad, id){
-    var fecha_inicio_Formateada = formato(fecha_inicio);
-    function formato(fecha_inicio){
-      return fecha_inicio.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
-    }
 
-    var fecha_fin_Formateada = formato(fecha_fin);
-    function formato(fecha_fin){
-      return fecha_fin.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
-    }
+    limpiarTabla()
 
+    var fecha_inicio_Formateada = formato(fecha_inicio)
+    var fecha_fin_Formateada = formato(fecha_fin)
     var prioridadTareaSeleccionada = document.getElementById('prioridad_Tareas').value
 
-    if (prioridadTareaSeleccionada == 'Mostrar_todas')
+    console.log(prioridadTareaSeleccionada)
+    console.log(prioridad)
+    console.log(prioridadTareaSeleccionada == prioridad)
+
+    if (prioridadTareaSeleccionada == "Mostrar_todas")
         return `
             <tr>
                 <td>${nombre}</td>
@@ -29,6 +37,7 @@ function crearTarea(nombre, fecha_inicio, fecha_fin, prioridad, id){
                 <td>${prioridad}</td>
                 <td><a href="/index/tarea/${id}"><img id="iconoDetalles" src='/static/img/iconoDetalles.png'></a></td>
             </tr>`;
+
     else if (prioridadTareaSeleccionada == prioridad)
         return `
         <tr>
@@ -44,10 +53,10 @@ function generarHTMLTablaTareas(tareas) {
         <table id="tabla" class="tablaListas">
             <thead>
                 <tr>
-                    <td>Nombre</td>
-                    <td>Fecha Inicio</td>
-                    <td>Fecha Fin</td>
-                    <td>Prioridad</td>
+                    <th>Nombre</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Prioridad</th>
                 </tr>
             </thead>
             <tbody>
