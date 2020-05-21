@@ -9,7 +9,6 @@
 <script src="{% static 'js/listar_empleados.js'%}"></script>
 
 <br>
-<script src="{% static 'js/listar_clientes.js'%}"></script>
 <div id="boton">
         <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear Empleado</a>
 </div>
@@ -23,7 +22,7 @@
 <form method="POST">
     {% csrf_token %}
             <input type="text" placeholder="DNI" name="DNI" id="DNI"><a> Foto Perfil:</a>
-            <input type="file" placeholder="Foto" name="foto_perfil" id="foto_perfil">
+            <input type="file" accept=".jpg, .jpeg" placeholder="Foto" name="foto_perfil" id="foto_perfil">
             <input type="text" placeholder="Nombre" name="nombre" id="nombre">
             <input type="text" placeholder="Primer Apellido" name="apellido1" id="apellido1">
             <input type="text" placeholder="Segundo Apellido" name="apellido2" id="apellido2">

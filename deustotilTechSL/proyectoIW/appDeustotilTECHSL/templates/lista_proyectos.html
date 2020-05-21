@@ -6,7 +6,35 @@
 <h2>Proyectos</h2>
 
 <div id="proyectos"></div>
-<script src="{% static 'js/listar_proyectos.js'%}"></script>
+    <script src="{% static 'js/listar_proyectos.js'%}"></script>
+
+<br>
+    <div id="boton">
+        <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear proyecto</a>
+    </div>
+    <div id="boton_cerrar" style="display:none">
+        <a class="boton_cerrar" href="javascript:cerrarForm();" style='cursor: pointer;'>Cerrar Formulario</a>
+    </div>
+
+<br>
+
+<div id="formulario" style="display:none" >
+    <form id="formularioClienteNuevo" method="post">
+    {% csrf_token %}
+        <input type="text" placeholder="Nombre" name="nombre" id="nombre">
+        <input type="text" placeholder="Descripcion" name="Descripcion" id="Descripcion">
+        <input type="date" placeholder="Fecha Inicio" name="fecha_inicio" id="fecha_inicio">
+        <input type="date" placeholder="Fecha Fin" name="fecha_fin" id="fecha_fin">
+        <input type="number" placeholder="presupuesto" name="presupuesto" id="presupuesto">
+        <input type="text" placeholder="cliente" name="cliente" id="cliente">
+        <input type="text" placeholder="tareas" name="tareas" id="tareas">
+        <input type="text" placeholder="empleados" name="empleados" id="empleados">
+        <input id="btn-nuevo-cliente" type="submit" value="Guardar">
+    </form>
+</div>
+
+
+
 
 
 {% endblock %}

@@ -1,4 +1,4 @@
-function loadData(seleccionPrioridad) {
+function loadData() {
     let url = 'http://127.0.0.1:8000/index/api_tareas/'
     fetch(url)
         .then((response) => response.json())
@@ -6,8 +6,6 @@ function loadData(seleccionPrioridad) {
             crearTablaTareas(tareas)
         })
     }
-
-loadData()
 
 function crearTarea(nombre, fecha_inicio, fecha_fin, prioridad, id){
     var fecha_inicio_Formateada = formato(fecha_inicio);
@@ -31,10 +29,7 @@ function crearTarea(nombre, fecha_inicio, fecha_fin, prioridad, id){
                 <td>${prioridad}</td>
                 <td><a href="/index/tarea/${id}"><img id="iconoDetalles" src='/static/img/iconoDetalles.png'></a></td>
             </tr>`;
-
-
-
-    if (prioridadTareaSeleccionada == prioridad)
+    else if (prioridadTareaSeleccionada == prioridad)
         return `
         <tr>
             <td>${nombre}</td>
@@ -43,8 +38,6 @@ function crearTarea(nombre, fecha_inicio, fecha_fin, prioridad, id){
             <td>${prioridad}</td>
             <td><a href="/index/tarea/${id}"><img id="iconoDetalles" src='/static/img/iconoDetalles.png'></a></td>
         </tr>`;}
-
-
 
 function generarHTMLTablaTareas(tareas) {
     let tabla = `
@@ -71,6 +64,7 @@ function crearTablaTareas(tareas){
     document.getElementById('tareas').innerHTML = tabla;
 }
 
+loadData()
 
 function mostrarForm() {
        document.getElementById('formulario').style.display=''

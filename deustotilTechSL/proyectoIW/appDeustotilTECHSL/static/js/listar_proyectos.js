@@ -56,7 +56,17 @@ function crearTablaProyectos(proyectos){
 }
 
 
+function mostrarForm() {
+       document.getElementById('formulario').style.display=''
+       document.getElementById('boton').style.display='none'
+       document.getElementById('boton_cerrar').style.display=''
+       }
 
+function cerrarForm() {
+       document.getElementById('formulario').style.display = 'none';
+       document.getElementById('boton').style.display=''
+       document.getElementById('boton_cerrar').style.display='none'
+       }
 
 
 
