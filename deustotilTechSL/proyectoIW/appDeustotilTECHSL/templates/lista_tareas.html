@@ -2,21 +2,21 @@
 {% load static %}
 {% block contenido %}
 
+<script src="{% static 'js/listar_tareas.js'%}"></script>
 
 <h2>Tareas</h2>
 <a>Mostrar tareas segun su prioridad: </a>
-<select id="prioridad_Tareas" onchange="loadData()">
+<select id="prioridad_Tareas" onchange="loadDataTareas()">
     <option value="Ninguna">Ninguna</option>
     <option value="Baja">Baja</option>
     <option value="Media">Media</option>
     <option value="Alta">Alta</option>
     <option value="Urgente">Urgente</option>
-    <option value="Mostrar_todas">Mostrar todas</option>
+    <option value="Mostrar_todas" selected>Mostrar todas</option>
 </select>
 <br>
 <div id="tareas"></div>
 <br>
-<script src="{% static 'js/listar_tareas.js'%}"></script>
 <div id="boton">
     <a class="boton" href="javascript:mostrarForm()" style='cursor: pointer;'>Crear Tarea</a>
 </div>
